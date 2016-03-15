@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>MapReduce 的优化Tips - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="programming tips">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2015/05/20/MR-optimization/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">MapReduce 的优化Tips</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-20T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>最近在都做MapReduce，但是MapReduce没有想象中处理数据这么快，结果发现并不能盲目的使用MapReduce。MapReduce是可以许多机器同时计算，但是并行计算带来的性能提升是有限的，有事反而会因为使用MapReduce过于简单粗暴，不根据具体的业务场景做适当的优化，反而会使程序性能下降。下面以最近的一个任务的完成为线索，将最近学习到的优化经验总结一下。</p>
+
+<h2>任务场景</h2>
+
+<ul>
+<li>数据A：包含url、ip、cookie、id、pv等数据</li>
+<li>数据B：ip字典（ip到地区的id映射）</li>
+<li>要求：以site*ip为统计粒度，计算数据分布，并且需要在数据里拼接上id</li>
+<li>目的：分析不同地区是否方位不同站点的偏好，去掉无法查到地区ip的数据</li>
+</ul>
+
+
+<h3>Mapreduce程序设计</h3>
+
+<p>以url和ip为key，ip为partition，在reduce阶段进行数据合并</p>
+
+<ul>
+<li><p>Map1输出：<code>(key:&lt;ip1,url1&gt;,vaule:pv1)</code></p></li>
+<li><p>Map2输出：<code>(key:&lt;ip2,"", vaule:locationid)</code></p></li>
+<li><p>Reducer输出：<code>（ip, url, locationid, total_pv)</code></p></li>
+</ul>
+
+
+<h3>性能优化</h3>
+
+<ul>
+<li><p>在map阶段加上combiner，减少从map到reducer传输的数据量</p></li>
+<li><p>在map的task中开辟一块内存，构造一个cache，代替combiner的工作</p></li>
+<li><p>对ip数据进行采样，计算出合理的分桶方法，重写并设置partition</p>
+
+<ul>
+<li>从100条数据中抽取一天数据</li>
+<li>将ip转化为数字进行排序</li>
+<li>划分区间</li>
+</ul>
+</li>
+<li><p>如果ip字典很小，不采用reduce合并的方法，在map阶段，加载ip字典到内存中，直接查询。</p></li>
+<li><p>如果ip字典很大，但是很多ip在字典中查不到。仍采用reduce阶段合并，预先计算一个ip的bloomfilter，用于在map阶段过来数据。</p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-20T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mapreduce/'>mapreduce</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2015/05/20/MR-optimization/" data-via="" data-counturl="http://yblu.github.io/blog/2015/05/20/MR-optimization/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/05/13/++iandi++/" title="Previous Post: ++i 和 i++ 的效率对比">&laquo; ++i 和 i++ 的效率对比</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/05/28/php-lottery/" title="Next Post: php 抽奖算法">php 抽奖算法 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

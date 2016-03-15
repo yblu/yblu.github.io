@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Java | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[assertThat的用法]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/13/Java-assertThat/"/>
+    <updated>2015-03-13T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/13/Java-assertThat</id>
+    <content type="html"><![CDATA[<h3>一般匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedNumber, allOf( greaterThan(8), lessThan(16) ) );</code></p>
+
+<p> 注释： allOf匹配符表明如果接下来的所有条件必须都成立测试才通过，相当于“与”（&amp;&amp;）</p></li>
+<li><p><code>assertThat( testedNumber, anyOf( greaterThan(16), lessThan(8) ) );</code></p>
+
+<p> 注释：anyOf匹配符表明如果接下来的所有条件只要有一个成立则测试通过，相当于“或”（||）</p></li>
+<li><p><code>assertThat( testedNumber, anything() );</code></p>
+
+<p> 注释：anything匹配符表明无论什么条件，永远为true</p></li>
+<li><p><code>assertThat( testedString, is( "developerWorks" ) );</code></p>
+
+<p> 注释： is匹配符表明如果前面待测的object等于后面给出的object，则测试通过</p></li>
+<li><p><code>assertThat( testedString, not( "developerWorks" ) );</code></p>
+
+<p> 注释：not匹配符和is匹配符正好相反，表明如果前面待测的object不等于后面给出的object，则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>字符串相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedString, containsString( "developerWorks" ) );</code></p>
+
+<p>注释：containsString匹配符表明如果测试的字符串testedString包含子字符串"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, endsWith( "developerWorks" ) )</code>;</p>
+
+<p> 注释：endsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"结尾则测试通过</p></li>
+<li><p><code>assertThat( testedString, startsWith( "developerWorks" ) );</code></p>
+
+<p> 注释：startsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"开始则测试通过</p></li>
+<li><p><code>assertThat( testedValue, equalTo( expectedValue ) );</code></p>
+
+<p> 注释： equalTo匹配符表明如果测试的testedValue等于expectedValue则测试通过，equalTo可以测试数值之间，字符串之间和对象之间是否相等，相当于Object的equals方法</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringCase( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringWhiteSpace( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringWhiteSpace匹配符表明如果测试的字符串testedString在忽略头尾的任意个空格的情况下等于"developerWorks"则测试通过，注意：字符串中的空格不能被忽略</p></li>
+</ol>
+
+
+<hr />
+
+<h3>数值相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedDouble, closeTo( 20.0, 0.5 ) );</code></p>
+
+<p> 注释：closeTo匹配符表明如果所测试的浮点型数testedDouble在20.0±0.5范围之内则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThan(16.0) );</code></p>
+
+<p> 注释：greaterThan匹配符表明如果所测试的数值testedNumber大于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThan (16.0) );</code></p>
+
+<p> 注释：lessThan匹配符表明如果所测试的数值testedNumber小于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释： greaterThanOrEqualTo匹配符表明如果所测试的数值testedNumber大于等于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释：lessThanOrEqualTo匹配符表明如果所测试的数值testedNumber小于等于16.0则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>collection相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( mapObject, hasEntry( "key", "value" ) );</code></p>
+
+<p> 注释：hasEntry匹配符表明如果测试的Map对象mapObject含有一个键值为"key"对应元素值为"value"的Entry项则测试通过</p></li>
+<li><p><code>assertThat( iterableObject, hasItem ( "element" ) );</code></p>
+
+<p> 注释：hasItem匹配符表明如果测试的迭代对象iterableObject含有元素“element”项则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasKey ( "key" ) );</code></p>
+
+<p> 注释： hasKey匹配符表明如果测试的Map对象mapObject含有键值“key”则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasValue ( "key" ) );</code></p>
+
+<p> 注释：hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”则测试通过</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Java 中 HashMap 的初始化]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation/"/>
+    <updated>2015-03-07T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation</id>
+    <content type="html"><![CDATA[<h3>1、普通写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+map.put("Name", "June");  
+map.put("QQ", "4889983");
+</code></pre>
+
+<h3>2、文艺写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;() {
+    {
+    put("Name", "June");  
+    put("QQ", "4889983");  
+    }
+};
+</code></pre>
+
+<p>第一层括弧实际是定义了一个匿名内部类 (Anonymous Inner Class)，第二层括弧实际上是一个实例初始化块 (instance initializer block)，这个块在内部匿名类构造时被执行。这个块之所以被叫做“实例初始化块”是因为它们被定义在了一个类的实例范围内。</p>
+
+<p>类似都可以在ArrayList、set上推广：</p>
+
+<pre><code>List&lt;String&gt; names = new ArrayList&lt;String&gt;() {
+    {
+        for (int i = 0; i &lt; 10; i++) {
+            add("A" + i);
+        }
+    }
+};
+</code></pre>
+
+<h3>3、文艺写法存在的问题</h3>
+
+<p>如果这个对象要串行化，可能会导致串行化失败。</p>
+
+<ol>
+<li><p>此种方式是匿名内部类的声明方式，所以引用中持有着外部类的引用。所以当时串行化这个集合时外           部类也会被不知不觉的串行化，当外部类没有实现serialize接口时，就会报错。</p></li>
+<li><p>上例中，其实是声明了一个继承自HashMap的子类。然而有些串行化方法，例如要通过Gson串行化为         json，或者要串行化为xml时，类库中提供的方式，是无法串行化Hashset或者HashMap的子类的，从而导致串行化失败。解决办法：重新初始化为一个HashMap对象：</p>
+
+<p> <code>new HashMap(map);</code></p>
+
+<p> 这样就可以正常初始化了。</p></li>
+<li>效率比普通写法低。</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Php | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Php 抽奖算法]]></title>
+    <link href="http://yblu.github.io/blog/2015/05/28/php-lottery/"/>
+    <updated>2015-05-28T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/05/28/php-lottery</id>
+    <content type="html"><![CDATA[<p>今天股票大跌，黑色星期四。</p>
+
+<p>今天写了一个用来负载均衡程序，抽象一下可以看成就是一抽奖程序。</p>
+
+<p>现在A股也想抽奖，就应景一下把这程序记录一下，其实很简单，直接贴代码。</p>
+
+<pre><code>function get_rand($proArr) { 
+    $result = ''; 
+    //概率数组的总概率精度 
+    $proSum = array_sum($proArr); 
+    //概率数组循环 
+    foreach ($proArr as $key =&gt; $proCur) { 
+        $randNum = mt_rand(1, $proSum);             //抽取随机数
+        if ($randNum &lt;= $proCur) { 
+            $result = $key;                         //得出结果
+            break; 
+        } else { 
+            $proSum -= $proCur;                     
+        } 
+    } 
+    unset ($proArr); 
+    return $result; 
+}
+</code></pre>
+
+<p>这段代码能够实现抽奖功能，当比较难从数学上证明正好服从设置的概率分布（有待证明,样本空间不变因此概率是一样的，有待补充。）</p>
+
+<p>写成这样，思维上比较顺。</p>
+
+<pre><code>function get_rand($arr)
+{
+    $pro_sum=array_sum($arr);
+    $rand_num=mt_rand(1,$pro_sum);
+    $tmp_num=0;
+    foreach($arr as $k=&gt;$val)
+    {    
+        if($rand_num&lt;=$val+$tmp_num)
+        {
+            $n=$k;
+            break;
+        }else
+        {
+            $tmp_num+=$val;
+        }
+    }
+    return $n;
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[php中global和$GLOBALS[]的用法、解释、区别]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/20/php-global.vs$GLOBALS%5B%5D/"/>
+    <updated>2015-03-20T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/20/php-global.vs$GLOBALS[]</id>
+    <content type="html"><![CDATA[<p>php语法中，很多人都认为global和$GLOBALS[]只是写法上面的差别，其实不然
+根据官方的解释是
+1.$GLOBALS[‘var’]是外部的全局变量本身
+2.global $var是外部$var的同名引用或者指针。</p>
+
+<p>举例说明一下：</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+$var2 = 2;
+function test(){
+$GLOBALS[‘var2′] = &amp;$GLOBALS[‘var1′];
+}
+test();
+echo $var2;
+?&gt;
+</code></pre>
+
+<p>正常打印结果为1</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+$var2 = 2;
+function test(){
+global $var1,$var2;
+$var2 = &amp;$var1;
+}
+test();
+echo $var2;
+?&gt;
+</code></pre>
+
+<p>意外打印结果为2</p>
+
+<p>为什么会打印结果为2呢？其实就是因为$var1的引用指向了$var2的引用地址。导致实质的值没有改变。
+我们再来看一个例子吧。</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+function test(){
+unset($GLOBALS[‘var1′]);
+}
+test();
+echo $var1;
+?&gt;
+</code></pre>
+
+<p>因为$var1被删除了，所以什么东西都没有打印</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+function test(){
+global $var1;
+unset($var1);
+}
+test();
+echo $var1;
+?&gt;
+</code></pre>
+
+<p>意外的打印了1。证明删除的只是别名|引用，起本身的值没有受到任何的改变
+明白了吧？
+也就是说global $var其实就是$var = &amp;$GLOBALS[‘var’]。调用外部变量的一个别名而已</p>
+]]></content>
+  </entry>
+  
+</feed>

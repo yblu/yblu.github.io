@@ -1,167 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>luyunbo's Blog</title>
-  <meta name="author" content="Lu Yunbo">
-
-  
-  <meta name="description" content="2015年，总的来说写码搬砖的一年， 本来想着试图总结下一年的生活，企图想得到点思想的结晶。但是下笔之后，发现思维浅薄，文笔愚钝。平时还是做的太少，体验太浅，思考太浅。 想来想去碎碎念下一年的流水，其中浅薄自知，不敢妄图得出人生大论。 2015年1月7日，开始进入狼厂实习搬砖， &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://yblu.github.io/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">luyunbo's Blog</a></h1>
-  
-    <h2>going to the sea of stars.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="sitesearch" value="yblu.github.io">
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Category: Rpc | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/rpc/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2016/01/02/2015-Summary/">2015年总结</a></h1>
-    
-    
-      <p class="meta">
-        
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-
-
-
-<time class='entry-date' datetime='2016-01-02T00:00:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p> 2015年，总的来说写码搬砖的一年，
- 本来想着试图总结下一年的生活，企图想得到点思想的结晶。但是下笔之后，发现思维浅薄，文笔愚钝。平时还是做的太少，体验太浅，思考太浅。
- 想来想去碎碎念下一年的流水，其中浅薄自知，不敢妄图得出人生大论。
- 2015年1月7日，开始进入狼厂实习搬砖，从伪科研伪学术转向了写码搬砖，感觉生活一些更真实了一些。
- 当然这件事也是坑了带我的师兄，他人很nice，本来会成为科研路上的带路人，不过时事无常，心之所向，再次表示惭愧和感激。
- 进入狼厂，本以为会有坊间传闻的互联网的敏捷和高压，但其实作为实习生还是很轻松的，虽然会接触到很多不同的不懂的东西，但是感觉上手起来还是很快的，感觉很快适应，但也迷茫，感觉实际的情况和原来的想象的不太一样。
- 现在想来还是too young too naive，你以为学会了hello world，就可以改变世界。
- 现在的认知是，漫漫码农路，而今开始从头越，但也不妄自菲薄。</p>
-
-<p> 2015年春节过年回来已经，已经是二月底了，忽悠一下，就了到四月份，去爬了趟黄山。
- 那天白天风和日丽，到了山顶的时候，风云突变，起雾，下雨雪，晚上山顶路面都结冰了，本来以为第二天不会有日出的，抱着撞大运的心情四点多起来看，没想到天晴了，有机会看日出，赶紧赶去丹霞峰，运气不错，卡到了一个不错观景位置。
- 天都峰的险峻，排云亭的云海仙境，黄山日出的美，嗯，迎客松的人多，哈哈。都领略到。
- “五岳归来不看山，黄山归来不看岳”，只能说确实不枉此行。
- 审美往往能在对比中提高，看过了更美的山河，才能会不如它的不过如此。登高望远，征服了更高的山，才能俯瞰众山下。体验了更好的东西，也才会去追求更好。
- 想到此，“多读书”，“遇贵人”等等似乎也蕴含着类似的道理吧，遇到更好的，自己也有机会变得更好吧。
- 另外黄山一行，损到了膝盖，应该是当年大一被车撞了留下的隐疾。整个黄山之行，还是被某人秒了。靠谱能力还是要努力提高啊。</p>
-
-<p> 黄山回来之后，继续日常，去狼厂搬砖，然后到了七月份，开题答辩，水水的走个过场。
- 七八月份，开始刷题，为找工作做准备。感觉和我同一届的同学总能遇到一些“好事”。高中课改第一届的是我们，保研的政策的突变，2015年校招遇到了“互联网寒冬”。
- 阿里来去匆匆，拥抱变化。阿里三战三败，看来还是和阿里无缘，内推java的，被面了数据挖掘。。。只怪自己学艺不精。
- 鹅厂，也被面试官秒了，一道二分查找白板编程就把我秒了，事后也只能用编程珠玑上的统计来安慰自己了，号称只有10%的人能完全写对，念此还是学艺不精。
- 狼厂，算是实习，混了个脸熟，留用了。
- 猪厂，去杭州打个酱油，捡了个offer回来，只能说猪厂太看得起我。
- 点评，还是比较欣赏的公司，慢而精的公司，也给了offer，可惜国庆回来，就和美团合并了，报团自身前途未卜，也就没敢太多去的念想了。
- 还零星投了一些小公司，就不赘述了。
- 没有北漂的想法，北京的公司都没投。
- FLAGM，想想还是算了，就不找虐了。
- 体验下来，技术还是有待提高，希望三年之后不想成为狼厂的混日子。
- 另外几点感悟就是，平台很重要，格局视野很重要，贵人很重要。前提都是自己也是有能力的。（此处满满负能量，省略一万字。）
- 学校教育是穷人上升最快途径之一，只可惜自己没能把握好这段时光上升，现在就要快离开了，要去职场和社会中受教育了。</p>
-
-<p> 2015年最后两个月，也是比较忙的一段时间，接手了同事的项目，到了另外一个团队干活。这也是实习一年下来学东西速率最高的一段时间吧，工作相对饱和，也有一定压力。
- 对程序员的工作的有了一些新的认识。
- 技多不压身，多一门手艺多一条出路，一专多能吧，就像很多人总结的T型人才。
- 靠谱很重要。任何原因的不靠谱，都会让别人有换掉你的想法，而不是会期待你靠谱起来。
- 人与动物的最大区别是会使用工具。这句话暂不论科学与否，但从某种程度上说明了，人会使用工具是很重要的，生产效率的提高，需要选择合适的工具很重要，熟练工具的使用。
- 另外还要学会个性化自定工具，比如想每天第一时间查看汇总系统情况，如果系统没提供可视化工具，可以自己简单快速造一个，一些常用的打包流程，可以自己封装一些工具。
- 总之，想办法优化自己的生产效率，让自己的生产生活更愉快些，造轮子也好，使用轮子也好，make things better，make right things happen。
- 技术思考的深入性，要用全面的事实说话，不能想当然，瞎说死得快。
- 工作的主动性，都思考一步为什么，怎么做。
- 要不断提高自我修养，编程规范要自我约束，留坑死全家啊，用狼厂的话就是“简单可依赖”吧。
- 技术提高不是目的，要的还是如何变现。技术不分贵贱，变现是王道，改变世界最牛逼。php是世界上最好的语言，哈哈。。。</p>
-
-<p> 碎碎念至此，流水已完。
- 2015年还是做的太少，体验太浅。没什么好的，也没什么不好的。
- 2016年已经开始，做好自己的事，朝某个目标慢慢前进吧，不断努力去遇见更好的风景。</p>
-</div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-06-03T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>定义一个消息类型</h2>
+  <entry>
+    <title type="html"><![CDATA[Protocol Buffer 语法指南]]></title>
+    <link href="http://yblu.github.io/blog/2015/06/03/PB-LanguageGuide/"/>
+    <updated>2015-06-03T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/06/03/PB-LanguageGuide</id>
+    <content type="html"><![CDATA[<h2>定义一个消息类型</h2>
 
 <p>先来看一个非常简单的例子。假设你想定义一个“搜索请求”的消息格式，每一个请求含有一个查询字符串、你感兴趣的查询结果所在的页数，以及每一页多少条查询结果。可以采用如下的方式来定义消息类型的.proto文件了：</p>
 
@@ -886,64 +743,38 @@ message Bar {
 <li>你必须提供一个或多个.proto文件作为输入。多个.proto文件能够一次全部声明。虽然这些文件是相对于当前目录来命名的，每个文件必须在一个IMPORT_PATH中，只有如此编译器才可以决定它的标准名称。</li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-06-01T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>这篇文章描述了protocol buffre消息的二进制有序格式。使用protocol buffers不需要理解这些，但是理解这些能够帮助你了解不同的protocol buffer格式是如何影响你的消息的编码。</p>
+  <entry>
+    <title type="html"><![CDATA[Protocol Buffer Encoding]]></title>
+    <link href="http://yblu.github.io/blog/2015/06/01/PB-Encoding/"/>
+    <updated>2015-06-01T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/06/01/PB-Encoding</id>
+    <content type="html"><![CDATA[<p>这篇文章描述了protocol buffre消息的二进制有序格式。使用protocol buffers不需要理解这些，但是理解这些能够帮助你了解不同的protocol buffer格式是如何影响你的消息的编码。</p>
 
 <h2>一个简单的消息</h2>
 
-<p>定义以下一个简单的消息：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>message Test1 {
-</span><span class='line'>  required int32 a = 1;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在应用程序中，你可以创建一个Test1 消息，然后设置它的值为150。然后你将该消息序列化得到一个输出流。如果你可以查看编码过的消息，会看到 以下3 byte：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>88 96 01</span></code></pre></td></tr></table></div></figure>
-
+<p>定义以下一个简单的消息：
+<code>
+    message Test1 {
+      required int32 a = 1;
+    }
+</code>
+在应用程序中，你可以创建一个Test1 消息，然后设置它的值为150。然后你将该消息序列化得到一个输出流。如果你可以查看编码过的消息，会看到 以下3 byte：
+<code>
+    88 96 01
+</code></p>
 
 <h2>Base 128 Varint</h2>
 
 <p>Varint 是一种紧凑的表示数字的方法。它用一个或多个字节来表示一个数字，值越小的数字使用越少的字节数。这能减少用来表示数字的字节数。
 比如对于 int32 类型的数字，一般需要 4 个 byte 来表示。但是采用 Varint，对于很小的 int32 类型的数字，则可以用 1 个 byte 来表示。当然凡事都有好的也有不好的一面，采用 Varint 表示法，大的数字则需要 5 个 byte 来表示。从统计的角度来说，一般不会所有的消息中的数字都是大数，因此大多数情况下，采用 Varint 后，可以用更少的字节数来表示数字信息。下面就详细介绍一下 Varint。</p>
 
-<p>Varint 中的每个 byte 的最高位 bit 有特殊的含义，如果该位为 1，表示后续的 byte 也是该数字的一部分，如果该位为 0，则结束。其他的 7 个 bit 都用来表示数字。因此小于 128 的数字都可以用一个 byte 表示。大于 128 的数字，比如 300，会用两个字节来表示：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1010 1100 0000 0010</span></code></pre></td></tr></table></div></figure>
-
+<p>Varint 中的每个 byte 的最高位 bit 有特殊的含义，如果该位为 1，表示后续的 byte 也是该数字的一部分，如果该位为 0，则结束。其他的 7 个 bit 都用来表示数字。因此小于 128 的数字都可以用一个 byte 表示。大于 128 的数字，比如 300，会用两个字节来表示：
+<code>
+    1010 1100 0000 0010
+</code></p>
 
 <h2>Message Structure</h2>
 
@@ -962,20 +793,16 @@ message Bar {
 
 
 <p>Key 用来标识具体的 field，在解包的时候，Protocol Buffer 根据 Key 就可以知道相应的 Value 应该对应于消息中的哪一个 field。
-Key 的定义如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> (field_number &lt;&lt; 3) | wire_type</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可以看到 Key 由两部分组成。最后3 bit是用来存储wire type。第一部分是 field_numbe。第二部分为 wire_type。表示 Value 的传输类型。
-再来看一个简单的例子。一条消息的第一个数字总是varint key，是08，或者如下（去掉msb）：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>000 1000</span></code></pre></td></tr></table></div></figure>
-
-
-<p>去最后三位得到wire type 0，然后右移三位得到 field number 1.因为你知道tag是1，加下来的value是varint。使用前面描述的varint解码，得到后续两个字节存储的是150.</p>
+Key 的定义如下：
+<code>
+     (field_number &lt;&lt; 3) | wire_type
+</code>
+可以看到 Key 由两部分组成。最后3 bit是用来存储wire type。第一部分是 field_numbe。第二部分为 wire_type。表示 Value 的传输类型。
+再来看一个简单的例子。一条消息的第一个数字总是varint key，是08，或者如下（去掉msb）：
+<code>
+    000 1000
+</code>
+去最后三位得到wire type 0，然后右移三位得到 field number 1.因为你知道tag是1，加下来的value是varint。使用前面描述的varint解码，得到后续两个字节存储的是150.</p>
 
 <blockquote><p>96 01 = 1001 0110  0000 0001
        → 000 0001  ++  001 0110 (drop the msb and reverse the groups of 7 bits)
@@ -997,19 +824,15 @@ Zigzag 编码用无符号数来表示有符号数字，正数和负数交错，�
 </tr></tbody></table></div>
 
 
-<p>也可以理解成，对于sint32，每个值 n 被编码成</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(n &lt;&lt; 1) ^ (n &gt;&gt; 31)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>对于sint64</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(n &lt;&lt; 1) ^ (n &gt;&gt; 63)</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 注意到第二个因为是算数移位。其实也就是，移位的结果要么全是0（n 是正数）要么全是1（n 是负数）
+<p>也可以理解成，对于sint32，每个值 n 被编码成
+<code>
+    (n &lt;&lt; 1) ^ (n &gt;&gt; 31)
+</code>
+对于sint64
+<code>
+    (n &lt;&lt; 1) ^ (n &gt;&gt; 63)
+</code>
+ 注意到第二个因为是算数移位。其实也就是，移位的结果要么全是0（n 是正数）要么全是1（n 是负数）
 当 sint32 或sint64 被解析的时候，他的value被解码成原来的带符号的版本。</p>
 
 <h3>非 varint 数字</h3>
@@ -1018,17 +841,13 @@ Zigzag 编码用无符号数来表示有符号数字，正数和负数交错，�
 
 <h3>String</h3>
 
-<p>一个 wire type 2移位这个这个value是varint 编码，后面跟着一序列的特殊数据的字节。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>message Test2 {
-</span><span class='line'>  required string b = 2;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>设置b成“testing”，则有：</p>
+<p>一个 wire type 2移位这个这个value是varint 编码，后面跟着一序列的特殊数据的字节。
+<code>
+    message Test2 {
+      required string b = 2;
+    }
+</code>
+设置b成“testing”，则有：</p>
 
 <blockquote><p>12 07 <strong>74 65 73 74 69 6e 67</strong></p></blockquote>
 
@@ -1036,17 +855,13 @@ Zigzag 编码用无符号数来表示有符号数字，正数和负数交错，�
 
 <h3>嵌套消息</h3>
 
-<p>定义如下一个嵌套消息：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>message Test3 {
-</span><span class='line'>  required Test1 c = 3;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Test1的域 a 被设置成150，则编码过后得到：</p>
+<p>定义如下一个嵌套消息：
+<code>
+    message Test3 {
+      required Test1 c = 3;
+    }
+</code>
+Test1的域 a 被设置成150，则编码过后得到：</p>
 
 <blockquote><p>1a 03 <strong>08 96 01</strong>
 后三位 08 96 01 正好是前面150的编码，数字3在他们前面，嵌套消息被看成是string。</p></blockquote>
@@ -1057,59 +872,37 @@ Zigzag 编码用无符号数来表示有符号数字，正数和负数交错，�
 
 <p>如果有optionan成员，tag对应的key-value对可能有，也可能没有。</p>
 
-<p>通常，一个编码的消息不会有多余一个的optional或required的示例。然后解析器也能处理多余一个情况。对于数值类型和字符串，如果相同的value出现多次，他们将接受它认为的最后一个value。对于嵌套消息的字段，解析器合并相同域的多个实例，就像用<code>Message::MergeFrom</code>，所有的单一标量字段将有后来代替先来的。单一个嵌套message会被合并，重复的字段被串连在一起。这些规则保证了间歇两个嵌套的消息的结果和你单独分开解析两个消息然后合并他们的结果是一致的。示例如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">MyMessage</span> <span class="n">message</span><span class="p">;</span>
-</span><span class='line'><span class="n">message</span><span class="p">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>等价于：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">MyMessage</span> <span class="n">message</span><span class="p">,</span> <span class="n">message2</span><span class="p">;</span>
-</span><span class='line'><span class="n">message</span><span class="p">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
-</span><span class='line'><span class="n">message2</span><span class="p">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
-</span><span class='line'><span class="n">message</span><span class="p">.</span><span class="n">MergeFrom</span><span class="p">(</span><span class="n">message2</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这个性质比较有用，因为他允许你合并两个消息，尽管你不知道他们的类型。</p>
+<p>通常，一个编码的消息不会有多余一个的optional或required的示例。然后解析器也能处理多余一个情况。对于数值类型和字符串，如果相同的value出现多次，他们将接受它认为的最后一个value。对于嵌套消息的字段，解析器合并相同域的多个实例，就像用<code>Message::MergeFrom</code>，所有的单一标量字段将有后来代替先来的。单一个嵌套message会被合并，重复的字段被串连在一起。这些规则保证了间歇两个嵌套的消息的结果和你单独分开解析两个消息然后合并他们的结果是一致的。示例如下：
+<code>c++
+    MyMessage message;
+    message.ParseFromString(str1 + str2);
+</code>
+等价于：
+<code>c++
+    MyMessage message, message2;
+    message.ParseFromString(str1);
+    message2.ParseFromString(str2);
+    message.MergeFrom(message2);
+</code>
+这个性质比较有用，因为他允许你合并两个消息，尽管你不知道他们的类型。</p>
 
 <p>Packed Repeated Fields
 Version 2.1.0引入了packed repeated 字段，带有选项[packed=true]的repeated字段。这个功能像repeated字段，但编码不同。0个元素的Packed Repeated  字段不会出现在编码消息中。否则，所有的字段元素都会被打包成成一个key-value对，wire type 为2。 每个元素都会以同样的方式编码，除了没有tag在他们前面。
-例如：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">message</span> <span class="n">Test4</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">repeated</span> <span class="n">int32</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">[</span><span class="n">packed</span><span class="o">=</span><span class="nb">true</span><span class="p">];</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>假设Test4 的字段d有值有3,270和86942，则编码形式如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="mi">22</span>        <span class="c1">// tag (field number 4, wire type 2)</span>
-</span><span class='line'><span class="mo">06</span>        <span class="c1">// payload size (6 bytes)</span>
-</span><span class='line'><span class="mo">03</span>        <span class="c1">// first element (varint 3)</span>
-</span><span class='line'><span class="mi">8</span><span class="n">E</span> <span class="mo">02</span>     <span class="c1">// second element (varint 270)</span>
-</span><span class='line'><span class="mi">9</span><span class="n">E</span> <span class="n">A7</span> <span class="mo">05</span>  <span class="c1">// third element (varint 86942)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>只有原始数值类型的repeated字段可以有“packed”。
+例如：
+<code>
+    message Test4 {
+      repeated int32 d = 4 [packed=true];
+    }
+</code>
+假设Test4 的字段d有值有3,270和86942，则编码形式如下：
+<code>
+    22        // tag (field number 4, wire type 2)
+    06        // payload size (6 bytes)
+    03        // first element (varint 3)
+    8E 02     // second element (varint 270)
+    9E A7 05  // third element (varint 86942)
+</code>
+只有原始数值类型的repeated字段可以有“packed”。
 注意到尽管一般没有理由编码更多的key-value对给一个packed repeated字段。编码器必须准备应复合key-value对。在这种情况下，负荷必须边串连进去。每对必须包含所有所有元素。</p>
 
 <h2>字段顺序</h2>
@@ -1117,255 +910,15 @@ Version 2.1.0引入了packed repeated 字段，带有选项[packed=true]的repea
 <p>在.proto文件中使字段可以是任意顺序的，当一条消息被序列化的时候，它所知道的字段是会根据字段标号顺序写入，就像C++，Java，Python的序列化代码。这允许解析代码可以根据有序的字段标号进行进行优化。然后protocol buffer 的解析器必须是能够解析任意顺序的字段，因为并非所有的消息都是被建成有序的对象，例如，这有时对简单串联合并的两个消息很有用。</p>
 
 <p>如果一个消息的拥有未知字段，现有Java 和C++ 操作在完成其他已知字段的序列化后将他们以任意顺序写入。现有的Python追踪未知字段。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-28T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天股票大跌，黑色星期四。</p>
-
-<p>今天写了一个用来负载均衡程序，抽象一下可以看成就是一抽奖程序。</p>
-
-<p>现在A股也想抽奖，就应景一下把这程序记录一下，其实很简单，直接贴代码。</p>
-
-<pre><code>function get_rand($proArr) { 
-    $result = ''; 
-    //概率数组的总概率精度 
-    $proSum = array_sum($proArr); 
-    //概率数组循环 
-    foreach ($proArr as $key =&gt; $proCur) { 
-        $randNum = mt_rand(1, $proSum);             //抽取随机数
-        if ($randNum &lt;= $proCur) { 
-            $result = $key;                         //得出结果
-            break; 
-        } else { 
-            $proSum -= $proCur;                     
-        } 
-    } 
-    unset ($proArr); 
-    return $result; 
-}
-</code></pre>
-
-<p>这段代码能够实现抽奖功能，当比较难从数学上证明正好服从设置的概率分布（有待证明,样本空间不变因此概率是一样的，有待补充。）</p>
-
-<p>写成这样，思维上比较顺。</p>
-
-<pre><code>function get_rand($arr)
-{
-    $pro_sum=array_sum($arr);
-    $rand_num=mt_rand(1,$pro_sum);
-    $tmp_num=0;
-    foreach($arr as $k=&gt;$val)
-    {    
-        if($rand_num&lt;=$val+$tmp_num)
-        {
-            $n=$k;
-            break;
-        }else
-        {
-            $tmp_num+=$val;
-        }
-    }
-    return $n;
-}
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-20T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近在都做MapReduce，但是MapReduce没有想象中处理数据这么快，结果发现并不能盲目的使用MapReduce。MapReduce是可以许多机器同时计算，但是并行计算带来的性能提升是有限的，有事反而会因为使用MapReduce过于简单粗暴，不根据具体的业务场景做适当的优化，反而会使程序性能下降。下面以最近的一个任务的完成为线索，将最近学习到的优化经验总结一下。</p>
-
-<h2>任务场景</h2>
-
-<ul>
-<li>数据A：包含url、ip、cookie、id、pv等数据</li>
-<li>数据B：ip字典（ip到地区的id映射）</li>
-<li>要求：以site*ip为统计粒度，计算数据分布，并且需要在数据里拼接上id</li>
-<li>目的：分析不同地区是否方位不同站点的偏好，去掉无法查到地区ip的数据</li>
-</ul>
-
-
-<h3>Mapreduce程序设计</h3>
-
-<p>以url和ip为key，ip为partition，在reduce阶段进行数据合并</p>
-
-<ul>
-<li><p>Map1输出：<code>(key:&lt;ip1,url1&gt;,vaule:pv1)</code></p></li>
-<li><p>Map2输出：<code>(key:&lt;ip2,"", vaule:locationid)</code></p></li>
-<li><p>Reducer输出：<code>（ip, url, locationid, total_pv)</code></p></li>
-</ul>
-
-
-<h3>性能优化</h3>
-
-<ul>
-<li><p>在map阶段加上combiner，减少从map到reducer传输的数据量</p></li>
-<li><p>在map的task中开辟一块内存，构造一个cache，代替combiner的工作</p></li>
-<li><p>对ip数据进行采样，计算出合理的分桶方法，重写并设置partition</p>
-
-<ul>
-<li>从100条数据中抽取一天数据</li>
-<li>将ip转化为数字进行排序</li>
-<li>划分区间</li>
-</ul>
-</li>
-<li><p>如果ip字典很小，不采用reduce合并的方法，在map阶段，加载ip字典到内存中，直接查询。</p></li>
-<li><p>如果ip字典很大，但是很多ip在字典中查不到。仍采用reduce阶段合并，预先计算一个ip的bloomfilter，用于在map阶段过来数据。</p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/13/++iandi++/">++i 和 I++ 的效率对比</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-13T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>这个问题需要分两种情况来解说：</p>
-
-<p>1、当变量i的数据类型是c++语言默认提供的类型的话，他们的效率是一样的。</p>
-
-<p>int a,i=0;     a=++i;汇编代码如下：</p>
-
-<pre><code> int a,i=0;
-01221A4E  mov         dword ptr [i],0 
- a=++i;
-01221A55  mov         eax,dword ptr [i] 
-01221A58  add         eax,1 
-01221A5B  mov         dword ptr [i],eax 
-01221A5E  mov         ecx,dword ptr [i] 
-01221A61  mov         dword ptr [a],ecx
-</code></pre>
-
-<p>int a,i=0;     a=i++;汇编代码如下：</p>
-
-<pre><code>  int a,i=0;
-009E1A4E  mov         dword ptr [i],0 
- a=i++;
-009E1A55  mov         eax,dword ptr [i] 
-009E1A58  mov         dword ptr [a],eax 
-009E1A5B  mov         ecx,dword ptr [i] 
-009E1A5E  add         ecx,1 
-009E1A61  mov         dword ptr [i],ecx
-</code></pre>
-
-<p>从汇编代码可以看出，他们的执行行数是一样的！</p>
-
-<p> 2、我们自定的数据类型，++i效率高于i++，通过运算符重载来给大家说明这一点。</p>
-
-<pre><code>Operator Operator::operator++()
-{
-   ++value;    //内部成员变量
-   return *this;
-}
-
-Operator Operator::operator++(int)
-{
- Operator temp;
- temp.value=value;
- value++;
- return temp;
-}
-</code></pre>
-
-<p>后++必须要有一个临时对象才可以</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/07/PB-Overview/">Protocol Buffers Overview</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-05-07T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Protocol Buffers(PB)简介</h2>
+  <entry>
+    <title type="html"><![CDATA[Protocol Buffers Overview]]></title>
+    <link href="http://yblu.github.io/blog/2015/05/07/PB-Overview/"/>
+    <updated>2015-05-07T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/05/07/PB-Overview</id>
+    <content type="html"><![CDATA[<h2>Protocol Buffers(PB)简介</h2>
 
 <p>protocol buffers是google提供的一种将结构化数据进行序列化和反序列化的方法，其优点是语言中立，平台中立，可扩展性好，目前在google内部大量用于数据存储，通讯协议等方面。PB在功能上类似XML，但是序列化后的数据更小，解析更快，使用上更简单。用户只要按照proto语法在.proto文件中定义好数据的结构，就可以使用PB提供的工具（protoc）自动生成处理数据的代码，使用这些代码就能在程序中方便的通过各种数据流读写数据。PB目前支持Java, C++和Python3种语言。另外，PB还提供了很好的向后兼容，即旧版本的程序可以正常处理新版本的数据，新版本的程序也能正常处理旧版本的数据。</p>
 
@@ -1527,716 +1080,7 @@ Protocol Buffer就是来解决这样许多这样的问题：</p>
 * 如果你想尝试新的开源RPC操作gRPC，我们建议对所有的新gRPC服务器和客服端中使用proto3，因为他避免了兼容性问题。</p>
 
 <p>注意到这两个版本的API不是完全兼容。为了避免给现有用户带来不便，我们需要在新的protocol buffers发布中继续支持已有的语言版本。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/04/07/linux-stdio/">Linux Shell的标准输入、输出和错误</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-04-07T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>1、文件描述符</h2>
-
-<table border="1">
-    <tr>
-        <td>文件</td>
-        <td>文件描述符</td>
-    </tr>
-    <tr>
-        <td>输入文件——标准输入</td>
-        <td>0(缺省是键盘，为0时是文件后者其他命令输出)</td>
-    <tr>
-        <td>输出文件——标准输出</td>
-        <td>1(缺省的是屏幕，为1时文件）</td>
-    </tr>
-    <tr>
-        <td>错误输出文件</td>
-        <td>2（缺省的是屏幕，为2是文件）</td>
-    </tr>
-</table>
-
-
-<h2>2、文件重定向</h2>
-
-<h3>2.1 输出重定向</h3>
-
-<table border="1">
-    <tr>
-        <td>cmd > filename</td>
-        <td>把标准输出重定向到一个新文件中（如果文件不存在则新建，如果文件存在则覆盖</td>
-    </tr>
-    <tr>
-        <td>cmd >> filename</td>
-        <td>把标准输出重定向到一个文件中（追加）</td>
-    </tr>
-    <tr>
-        <td>cmd > filename 2>&1</td>
-        <td>把标准输出和错误一起重定向到一个文件中</td>
-    </tr>
-    <tr>
-        <td>cmd 2 > filename</td>
-        <td>把标准错误重定向到一个文件中</td>
-    </tr>
-    <tr>
-        <td>cmd 2 >> filename</td>
-        <td>把标准错误重定向追加到一个文件中</td>
-    </tr>
-    <tr>
-        <td>cmd >> filename 2>&1</td>
-        <td>把标准输出和错误重定向追加到一个文件中</td>
-    </tr>
-</table>
-
-
-<h3>2.2 输入重定向</h3>
-
-<table border="1">
-    <tr>
-        <td>cmd < filename > filename2</td>
-        <td>cmd的命令以 filename 文件作为标准输入，以 filename2 作为作为标准输出</td>
-    </tr>
-    <tr>
-        <td>cmd < filename</td>
-        <td>cmd命令以 filename 文件作为标准输入</td>
-    </tr>
-    <tr>
-        <td>cmd << delimiter</td>
-        <td>从标准输入中读入，直到遇到delimiter分界符</td>
-    </tr>
-</table>
-
-
-<h3>2.3 绑定重定向</h3>
-
-<table>
-    <tr>
-        <td>cmd > &m</td>
-        <td>把标准输出重定向到文件描述符中</td>
-    </tr>
-    <tr>
-        <td>cmd < &-</td>
-        <td>关闭标准输入</td>
-    </tr>
-    <td>cmd 0 > &-</td>
-    <td>g关闭标准输入</td>
-</table>
-
-
-<h2>3 shell重定向的一些高级用法</h2>
-
-<h3>3.1 重定向标准错误</h3>
-
-<p>例子1：</p>
-
-<pre><code>command 2&gt; /dev/null
-</code></pre>
-
-<p>如果command执行出错，将错误的信息重定向到空设备</p>
-
-<p>例子2：</p>
-
-<pre><code>command &gt; out.put 2&gt;&amp;1
-</code></pre>
-
-<p>将command执行的标准输出和标准错误重定向到out.put（也就是说不管command执行正确还是错误，输出都打印到out.put）。</p>
-
-<h3>3.2 exec用法</h3>
-
-<p>exec命令可以用来替代当前shell；换句话说，并没有启动子shell，使用这一条命令时任何现有环境变量将会被清除，并重新启动一个shell（重新输入用户名和密码进入）。</p>
-
-<pre><code>exec command
-</code></pre>
-
-<p>其中，command通常是一个shell脚本。</p>
-
-<p>对文件描述符操作的时候用（也只有再这时候），它不会覆盖你当前的shell</p>
-
-<p>例子1：</p>
-
-<pre><code>#!/bin/bash
-#file_desc
-exec 3&lt;&amp;0 0&lt;name.txt
-read line1
-read line2
-exec 0&lt;&amp;3
-echo $line1
-echo $line2
-</code></pre>
-
-<p>其中：
-首先，<code>exec 3&lt;&amp;0 0&lt;name.txt</code>的意思是把标准输入重定向到文件描述符3（0表示标准输入），然后把文件name.txt内容重定向到文件描述符0，实际上就是把文件name.txt中的内容重定向到文件描述符3。然后通过exec打开文件描述符3；
-然后，通过read命令读取name.txt的第一行内容line1，第二行内容line2，通过Exec 0&lt;&amp;3关闭文件描述符3；
-最后，用echo命令输出line1和line2。最好在终端运行一下这个脚本，亲自尝试一下。</p>
-
-<p>例子2：</p>
-
-<pre><code>exec 3&lt;&gt;test.sh;
-#打开test.sh可读写操作，与文件描述符3绑定
-while read line&lt;&amp;3
-do
-    echo $line;
-done
-#循环读取文件描述符3（读取的是test.sh内容）
-exec 3&gt;&amp;-
-exec 3&lt;&amp;-
-#关闭文件的，输入，输出绑定
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/04/03/hadoop-fs%20shell/">Hadoop FS Shell命令</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-04-03T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>FS Shell</h2>
-
-<p>调用文件系统(FS)Shell命令应使用 bin/hadoop fs <args>的形式。 所有的的FS shell命令使用URI路径作为参数。URI格式是scheme://authority/path。对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。其中scheme和authority参数都是可选的，如果未加指定，就会使用配置中指定的默认scheme。一个HDFS文件或目录比如/parent/child可以表示成hdfs://namenode:namenodeport/parent/child，或者更简单的/parent/child（假设你配置文件中的默认值是namenode:namenodeport）。大多数FS Shell命令的行为和对应的Unix Shell命令类似，不同之处会在下面介绍各命令使用详情时指出。出错信息会输出到stderr，其他信息输出到stdout。</p>
-
-<h3>cat</h3>
-
-<p>使用方法：<code>hadoop fs -cat URI [URI …]</code></p>
-
-<p>将路径指定文件的内容输出到stdout。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><p><code>hadoop fs -cat hdfs://host1:port1/file1 hdfs://host2:port2/file2</code></p></li>
-<li><p><code>hadoop fs -cat file:///file3 /user/hadoop/file4</code></p></li>
-</ul>
-
-
-<p>返回值：
-成功返回0，失败返回-1。</p>
-
-<h3>chgrp</h3>
-
-<p>使用方法：<code>hadoop fs -chgrp [-R] GROUP URI [URI …]</code></p>
-
-<p>改变文件所属的组。使用-R将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。更多的信息请参见HDFS权限用户指南。</p>
-
-<h3>chmod</h3>
-
-<p>使用方法：<code>hadoop fs -chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; URI [URI …]</code></p>
-
-<p>改变文件的权限。使用-R将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。更多的信息请参见HDFS权限用户指南。</p>
-
-<h3>chown</h3>
-
-<p>使用方法：<code>hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]</code></p>
-
-<p>改变文件的拥有者。使用-R将使改变在目录结构下递归进行。命令的使用者必须是超级用户。更多的信息请参见HDFS权限用户指南。</p>
-
-<h3>copyFromLocal</h3>
-
-<p>使用方法：<code>hadoop fs -copyFromLocal &lt;localsrc&gt; URI</code></p>
-
-<p>除了限定源路径是一个本地文件外，和put命令相似。</p>
-
-<h3>copyToLocal</h3>
-
-<p>使用方法：<code>hadoop fs -copyToLocal [-ignorecrc] [-crc] URI &lt;localdst&gt;</code></p>
-
-<p>除了限定目标路径是一个本地文件外，和get命令类似。</p>
-
-<h3>cp</h3>
-
-<p>使用方法：<code>hadoop fs -cp URI [URI …] &lt;dest&gt;</code></p>
-
-<p>将文件从源路径复制到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2</code></li>
-<li><code>hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>du</h3>
-
-<p>使用方法：<code>hadoop fs -du URI [URI …]</code></p>
-
-<p>显示目录中所有文件的大小，或者当只指定一个文件时，显示此文件的大小。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -du /user/hadoop/dir1 /user/hadoop/file1 hdfs://host:port/user/hadoop/dir1</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>dus</h3>
-
-<p>使用方法：<code>hadoop fs -dus &lt;args&gt;</code></p>
-
-<p>显示文件的大小。</p>
-
-<h3>expunge</h3>
-
-<p>使用方法：<code>hadoop fs -expunge</code></p>
-
-<p>清空回收站。请参考HDFS设计文档以获取更多关于回收站特性的信息。</p>
-
-<h3>get</h3>
-
-<p>使用方法：hadoop fs -get [-ignorecrc] [-crc] <src> <localdst></p>
-
-<p>复制文件到本地文件系统。可用-ignorecrc选项复制CRC校验失败的文件。使用-crc选项复制文件以及CRC信息。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><p><code>hadoop fs -get /user/hadoop/file localfile</code></p></li>
-<li><p><code>hadoop fs -get hdfs://host:port/user/hadoop/file localfile</code></p></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>getmerge</h3>
-
-<p>使用方法：<code>hadoop fs -getmerge &lt;src&gt; &lt;localdst&gt; [addnl]</code></p>
-
-<p>接受一个源目录和一个目标文件作为输入，并且将源目录中所有的文件连接成本地目标文件。addnl是可选的，用于指定在每个文件结尾添加一个换行符。</p>
-
-<h3>ls</h3>
-
-<p>使用方法：<code>hadoop fs -ls &lt;args&gt;</code></p>
-
-<p>如果是文件，则按照如下格式返回文件信息：</p>
-
-<p>文件名 &lt;副本数> 文件大小 修改日期 修改时间 权限 用户ID 组ID</p>
-
-<p>如果是目录，则返回它直接子文件的一个列表，就像在Unix中一样。目录返回列表的信息如下：</p>
-
-<p>目录名 &lt;dir> 修改日期 修改时间 权限 用户ID 组ID</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -ls /user/hadoop/file1 /user/hadoop/file2 hdfs://host:port/user/hadoop/dir1 /nonexistentfile</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>lsr</h3>
-
-<p>使用方法：<code>hadoop fs -lsr &lt;args&gt;</code></p>
-
-<p>ls命令的递归版本。类似于Unix中的ls -R。</p>
-
-<h3>mkdir</h3>
-
-<p>使用方法：<code>hadoop fs -mkdir &lt;paths&gt;</code></p>
-
-<p>接受路径指定的uri作为参数，创建这些目录。其行为类似于Unix的mkdir -p，它会创建路径中的各级父目录。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -mkdir /user/hadoop/dir1 /user/hadoop/dir2</code></li>
-<li><code>hadoop fs -mkdir hdfs://host1:port1/user/hadoop/dir hdfs://host2:port2/user/hadoop/dir</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>movefromLocal</h3>
-
-<p>使用方法：<code>dfs -moveFromLocal &lt;src&gt; &lt;dst&gt;</code></p>
-
-<p>输出一个”not implemented“信息。</p>
-
-<h3>mv</h3>
-
-<p>使用方法：<code>hadoop fs -mv URI [URI …] &lt;dest&gt;</code></p>
-
-<p>将文件从源路径移动到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。不允许在不同的文件系统间移动文件。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -mv /user/hadoop/file1 /user/hadoop/file2</code></li>
-<li><code>hadoop fs -mv hdfs://host:port/file1 hdfs://host:port/file2 hdfs://host:port/file3 hdfs://host:port/dir1</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>put</h3>
-
-<p>使用方法：<code>hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;</code></p>
-
-<p>从本地文件系统中复制单个或多个源路径到目标文件系统。也支持从标准输入中读取输入写入目标文件系统。</p>
-
-<ul>
-<li><code>hadoop fs -put localfile /user/hadoop/hadoopfile</code></li>
-<li><code>hadoop fs -put localfile1 localfile2 /user/hadoop/hadoopdir</code></li>
-<li><code>hadoop fs -put localfile hdfs://host:port/hadoop/hadoopfile</code></li>
-<li><code>hadoop fs -put hdfs://host:port/hadoop/hadoopfile</code></li>
-</ul>
-
-
-<p>从标准输入中读取输入。</p>
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>rm</h3>
-
-<p>使用方法：<code>hadoop fs -rm URI [URI …]</code></p>
-
-<p>删除指定的文件。只删除非空目录和文件。请参考rmr命令了解递归删除。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -rm hdfs://host:port/file /user/hadoop/emptydir</code></li>
-</ul>
-
-
-<p>返回值：
-成功返回0，失败返回-1。</p>
-
-<h3>rmr</h3>
-
-<p>使用方法：<code>hadoop fs -rmr URI [URI …]</code></p>
-
-<p>delete的递归版本。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -rmr /user/hadoop/dir</code></li>
-<li><code>hadoop fs -rmr hdfs://host:port/user/hadoop/dir</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>setrep</h3>
-
-<p>使用方法：<code>hadoop fs -setrep [-R] &lt;path&gt;</code></p>
-
-<p>改变一个文件的副本系数。-R选项用于递归改变目录下所有文件的副本系数。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -setrep -w 3 -R /user/hadoop/dir1</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>stat</h3>
-
-<p>使用方法：<code>hadoop fs -stat URI [URI …]</code></p>
-
-<p>返回指定路径的统计信息。</p>
-
-<p>示例：</p>
-
-<pre><code>* hadoop fs -stat path
-</code></pre>
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>tail</h3>
-
-<p>使用方法：<code>hadoop fs -tail [-f] URI</code></p>
-
-<p>将文件尾部1K字节的内容输出到stdout。支持-f选项，行为和Unix中一致。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -tail pathname</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-
-<h3>test</h3>
-
-<p>使用方法：<code>hadoop fs -test -[ezd] URI</code></p>
-
-<p>选项：</p>
-
-<p>-e 检查文件是否存在。如果存在则返回0。</p>
-
-<p>-z 检查文件是否是0字节。如果是则返回0。</p>
-
-<p>-d 如果路径是个目录，则返回1，否则返回0。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop fs -test -e filename</code></li>
-</ul>
-
-
-<h3>text</h3>
-
-<p>使用方法：<code>hadoop fs -text &lt;src&gt;</code></p>
-
-<p>将源文件输出为文本格式。允许的格式是zip和TextRecordInputStream。</p>
-
-<h3>touchz</h3>
-
-<p>使用方法：<code>hadoop fs -touchz URI [URI …]</code></p>
-
-<p>创建一个0字节的空文件。</p>
-
-<p>示例：</p>
-
-<ul>
-<li><code>hadoop -touchz pathname</code></li>
-</ul>
-
-
-<p>返回值：</p>
-
-<p>成功返回0，失败返回-1。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/20/php-global.vs$GLOBALS%5B%5D/">php中global和$GLOBALS[]的用法、解释、区别</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-03-20T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>php语法中，很多人都认为global和$GLOBALS[]只是写法上面的差别，其实不然
-根据官方的解释是
-1.$GLOBALS[‘var’]是外部的全局变量本身
-2.global $var是外部$var的同名引用或者指针。</p>
-
-<p>举例说明一下：</p>
-
-<pre><code>&lt;?php
-$var1 = 1;
-$var2 = 2;
-function test(){
-$GLOBALS[‘var2′] = &amp;$GLOBALS[‘var1′];
-}
-test();
-echo $var2;
-?&gt;
-</code></pre>
-
-<p>正常打印结果为1</p>
-
-<pre><code>&lt;?php
-$var1 = 1;
-$var2 = 2;
-function test(){
-global $var1,$var2;
-$var2 = &amp;$var1;
-}
-test();
-echo $var2;
-?&gt;
-</code></pre>
-
-<p>意外打印结果为2</p>
-
-<p>为什么会打印结果为2呢？其实就是因为$var1的引用指向了$var2的引用地址。导致实质的值没有改变。
-我们再来看一个例子吧。</p>
-
-<pre><code>&lt;?php
-$var1 = 1;
-function test(){
-unset($GLOBALS[‘var1′]);
-}
-test();
-echo $var1;
-?&gt;
-</code></pre>
-
-<p>因为$var1被删除了，所以什么东西都没有打印</p>
-
-<pre><code>&lt;?php
-$var1 = 1;
-function test(){
-global $var1;
-unset($var1);
-}
-test();
-echo $var1;
-?&gt;
-</code></pre>
-
-<p>意外的打印了1。证明删除的只是别名|引用，起本身的值没有受到任何的改变
-明白了吧？
-也就是说global $var其实就是$var = &amp;$GLOBALS[‘var’]。调用外部变量的一个别名而已</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/2">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - Lu Yunbo -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

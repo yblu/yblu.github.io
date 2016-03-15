@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>assertThat的用法 - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="java">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2015/03/13/Java-assertThat/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">assertThat的用法</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-13T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>一般匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedNumber, allOf( greaterThan(8), lessThan(16) ) );</code></p>
+
+<p> 注释： allOf匹配符表明如果接下来的所有条件必须都成立测试才通过，相当于“与”（&amp;&amp;）</p></li>
+<li><p><code>assertThat( testedNumber, anyOf( greaterThan(16), lessThan(8) ) );</code></p>
+
+<p> 注释：anyOf匹配符表明如果接下来的所有条件只要有一个成立则测试通过，相当于“或”（||）</p></li>
+<li><p><code>assertThat( testedNumber, anything() );</code></p>
+
+<p> 注释：anything匹配符表明无论什么条件，永远为true</p></li>
+<li><p><code>assertThat( testedString, is( "developerWorks" ) );</code></p>
+
+<p> 注释： is匹配符表明如果前面待测的object等于后面给出的object，则测试通过</p></li>
+<li><p><code>assertThat( testedString, not( "developerWorks" ) );</code></p>
+
+<p> 注释：not匹配符和is匹配符正好相反，表明如果前面待测的object不等于后面给出的object，则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>字符串相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedString, containsString( "developerWorks" ) );</code></p>
+
+<p>注释：containsString匹配符表明如果测试的字符串testedString包含子字符串"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, endsWith( "developerWorks" ) )</code>;</p>
+
+<p> 注释：endsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"结尾则测试通过</p></li>
+<li><p><code>assertThat( testedString, startsWith( "developerWorks" ) );</code></p>
+
+<p> 注释：startsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"开始则测试通过</p></li>
+<li><p><code>assertThat( testedValue, equalTo( expectedValue ) );</code></p>
+
+<p> 注释： equalTo匹配符表明如果测试的testedValue等于expectedValue则测试通过，equalTo可以测试数值之间，字符串之间和对象之间是否相等，相当于Object的equals方法</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringCase( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringWhiteSpace( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringWhiteSpace匹配符表明如果测试的字符串testedString在忽略头尾的任意个空格的情况下等于"developerWorks"则测试通过，注意：字符串中的空格不能被忽略</p></li>
+</ol>
+
+
+<hr />
+
+<h3>数值相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedDouble, closeTo( 20.0, 0.5 ) );</code></p>
+
+<p> 注释：closeTo匹配符表明如果所测试的浮点型数testedDouble在20.0±0.5范围之内则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThan(16.0) );</code></p>
+
+<p> 注释：greaterThan匹配符表明如果所测试的数值testedNumber大于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThan (16.0) );</code></p>
+
+<p> 注释：lessThan匹配符表明如果所测试的数值testedNumber小于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释： greaterThanOrEqualTo匹配符表明如果所测试的数值testedNumber大于等于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释：lessThanOrEqualTo匹配符表明如果所测试的数值testedNumber小于等于16.0则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>collection相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( mapObject, hasEntry( "key", "value" ) );</code></p>
+
+<p> 注释：hasEntry匹配符表明如果测试的Map对象mapObject含有一个键值为"key"对应元素值为"value"的Entry项则测试通过</p></li>
+<li><p><code>assertThat( iterableObject, hasItem ( "element" ) );</code></p>
+
+<p> 注释：hasItem匹配符表明如果测试的迭代对象iterableObject含有元素“element”项则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasKey ( "key" ) );</code></p>
+
+<p> 注释： hasKey匹配符表明如果测试的Map对象mapObject含有键值“key”则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasValue ( "key" ) );</code></p>
+
+<p> 注释：hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”则测试通过</p></li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-03-13T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/learning/'>learning</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2015/03/13/Java-assertThat/" data-via="" data-counturl="http://yblu.github.io/blog/2015/03/13/Java-assertThat/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/07/Java-HashMapInitiation/" title="Previous Post: Java 中 HashMap 的初始化">&laquo; Java 中 HashMap 的初始化</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/03/20/BigData-SkillMap/" title="Next Post: 大数据工程人员知识图谱">大数据工程人员知识图谱 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

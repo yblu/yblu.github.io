@@ -1,0 +1,1503 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="大数据相关工程人员需要掌握的技术相关知识点。主要涉及到数据库、数据仓库、编程、分布式系统、Hadoop生态系统相关、数据挖掘和机器学习相关的基础知识点 Topic Content Key points Reference DB/OLTP &amp; DW/OLAP Database/OLTP &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/posts/2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/20/BigData-SkillMap/">大数据工程人员知识图谱</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-20T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>大数据相关工程人员需要掌握的技术相关知识点。主要涉及到数据库、数据仓库、编程、分布式系统、Hadoop生态系统相关、数据挖掘和机器学习相关的基础知识点</p>
+
+<table>
+    <tr>
+        <td valign="top" width="62"><span style="color: #000000;">Topic</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Content</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Key points</span></td>
+        <td valign="top" width="80"><span style="color: #000000;">Reference</span></td>
+        </tr>
+    <tr>
+        <td rowspan="4" valign="top" width="62"><span style="color: #000000;">DB/OLTP &amp; DW/OLAP</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Database/OLTP basic</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">The relational model, SQL, index/secondary index, inner join/left join/right join/full join, transaction/ACID</span></td>
+        <td rowspan="4" valign="top" width="80"><span style="color: #000000;">Ramakrishnan, Raghu, and Johannes Gehrke. Database Management Systems.</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Database internal &amp; implementation</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Architecture, memory management, storage/B+ tree, query parse /optimization/execution, hash join/sort-merge join</span></td>
+        </tr>
+        <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Distributed and parallel database</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Sharding, database proxy</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Data warehouse/OLAP</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Materialized views, ETL, column-oriented storage, reporting, BI tools</span></td>
+    </tr>
+    <tr>
+        <td rowspan="5" valign="top" width="62"><span style="color: #000000;">Basic programming</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Programming language</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Java, Python (Pandas/NumPy/SciPy/scikit-learn), SQL, Functional programming, R/SAS/SPSS</span></td>
+        <td rowspan="5" valign="top" width="80"><span style="color: #000000;">Wes McKinney. Python for Data Analysis: Agile Tools for Real World Data.</span>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">OS</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Linux</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">DB &amp; DW system</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">MySQL/ Hive/Impala</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Text format and process</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">JSON/XML, regex</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Tool</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Git/SVN, Maven</span></td>
+    </tr>
+    <tr>
+        <td rowspan="10" valign="top" width="62"><span style="color: #000000;">Distributed system &amp; Hadoop ecosystem &amp; NoSQL</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Distributed system principal theory</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">CAP theorem, RPC (Protocol Buffer/Thrift/Avro), Zookeeper, Metadata management (HCatalog)</span></td>
+        <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Distributed storage &amp; computing framework &amp; resource management</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Hadoop/HDFS/MapReduce/YARN</span></td>
+        <td valign="top" width="80"><span style="color: #000000;">Tom White. Hadoop : The Definitive Guide.</span><p></p>
+        <p><span style="color: #000000;">Donald Miner, Adam Shook. MapReduce Design Patterns : Building Effective Algorithm and Analytics for Hadoop and Other Systems.</span></p></td>
+    </tr>
+    <tr>
+    <td rowspan="2" valign="top" width="50"><span style="color: #000000;">SQL on Hadoop</span></td>
+    <td valign="top" width="64"><span style="color: #000000;">Data (log) acquisition/integration/fusion, normalization, feature extraction</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Sqoop, Flume/Scribe/Chukwa,</span><span style="color: #000000;">SerDe</span></td>
+    <td rowspan="2" valign="top" width="80"><span style="color: #000000;">Edward Capriolo, Dean Wampler, Jason Rutherglen. Programming Hive.</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Query &amp; In-database analytics</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Hive, Impala, UDF/UDAF</span></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Large scale data mining &amp; machine learning framework</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Spark/MLbase, MR/Mahout</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Streaming process</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Storm</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td rowspan="4" colspan="2" valign="top" width="113"><span style="color: #000000;">NoSQL</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">HBase/Cassandra (column oriented database)</span></td>
+    <td rowspan="4" valign="top" width="80"><span style="color: #000000;">Lars George. HBase: The Definitive Guide.</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="149"><span style="color: #000000;">Mongodb (Document database)</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="149"><span style="color: #000000;">Neo4j (graph database)</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="149"><span style="color: #000000;">Redis (cache)</span></td>
+    </tr>
+    <tr>
+    <td rowspan="10" valign="top" width="62"><span style="color: #000000;">Data mining &amp; Machine learning</span></td>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">DM &amp; ML basic</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Numerical/Categorical variable, training/test data, over fitting, bias/variance, precision/recall, tagging</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Statistic</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Data exploration (mean, median/range/standard deviation/variance/histogram), Continues distributions (Normal/ Poisson/Gaussian), covariance, correlation coefficient, distance and similarity computing, Bayes theorem, Monte Carlo Method, Hypothesis testing</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Supervised learning</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Classifier, boosting, prediction, regression analysis</span></td>
+    <td rowspan="7" valign="top" width="80">
+    <p align="left"><span style="color: #000000;">Han, Jiawei,Micheline Kamber, and Jian Pei.&nbsp;Data mining: concepts and techniques.</span></p>
+    <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Unsupervised learning</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Cluster, deep learning</span></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Collaborative filtering</span></td>
+    <td valign="top" width="149">
+    <p align="left"><span style="color: #000000;">Item based CF, user based CF</span></p>
+    <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+    <td rowspan="4" valign="top" width="50"><span style="color: #000000;">Algorithm</span></td>
+    <td valign="top" width="64"><span style="color: #000000;">Classifier</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Decision trees, KNN (K-Nearest neighbor), SVM (support vector machines), SVD (Singular Value Decomposition), naïve Bayes classifiers, neural networks,</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Regression</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Linear regression, logistic regression, ranking, perception</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Cluster</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Hierarchical cluster, K-means cluster, Spectral Cluster</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Dimensionality reduction</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">PCA (Principal Component Analysis), LDA (Linear discriminant Analysis), MDS (Multidimensional scaling)</span></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Text mining &amp; Information retrieval</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Corpus, term document matrix, term frequency &amp; weight, association rules, market based analysis, vocabulary mapping, sentiment analysis, tagging, PageRank, VSM (Vector Space Model), inverted index</span></td>
+    <td valign="top" width="80"><span style="color: #000000;">Jimmy Lin and Chris Dyer. Data-Intensive Text Processing with MapReduce.</span></td>
+    </tr>
+</table>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/13/Java-assertThat/">assertThat的用法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-13T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>一般匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedNumber, allOf( greaterThan(8), lessThan(16) ) );</code></p>
+
+<p> 注释： allOf匹配符表明如果接下来的所有条件必须都成立测试才通过，相当于“与”（&amp;&amp;）</p></li>
+<li><p><code>assertThat( testedNumber, anyOf( greaterThan(16), lessThan(8) ) );</code></p>
+
+<p> 注释：anyOf匹配符表明如果接下来的所有条件只要有一个成立则测试通过，相当于“或”（||）</p></li>
+<li><p><code>assertThat( testedNumber, anything() );</code></p>
+
+<p> 注释：anything匹配符表明无论什么条件，永远为true</p></li>
+<li><p><code>assertThat( testedString, is( "developerWorks" ) );</code></p>
+
+<p> 注释： is匹配符表明如果前面待测的object等于后面给出的object，则测试通过</p></li>
+<li><p><code>assertThat( testedString, not( "developerWorks" ) );</code></p>
+
+<p> 注释：not匹配符和is匹配符正好相反，表明如果前面待测的object不等于后面给出的object，则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>字符串相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedString, containsString( "developerWorks" ) );</code></p>
+
+<p>注释：containsString匹配符表明如果测试的字符串testedString包含子字符串"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, endsWith( "developerWorks" ) )</code>;</p>
+
+<p> 注释：endsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"结尾则测试通过</p></li>
+<li><p><code>assertThat( testedString, startsWith( "developerWorks" ) );</code></p>
+
+<p> 注释：startsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"开始则测试通过</p></li>
+<li><p><code>assertThat( testedValue, equalTo( expectedValue ) );</code></p>
+
+<p> 注释： equalTo匹配符表明如果测试的testedValue等于expectedValue则测试通过，equalTo可以测试数值之间，字符串之间和对象之间是否相等，相当于Object的equals方法</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringCase( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringWhiteSpace( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringWhiteSpace匹配符表明如果测试的字符串testedString在忽略头尾的任意个空格的情况下等于"developerWorks"则测试通过，注意：字符串中的空格不能被忽略</p></li>
+</ol>
+
+
+<hr />
+
+<h3>数值相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedDouble, closeTo( 20.0, 0.5 ) );</code></p>
+
+<p> 注释：closeTo匹配符表明如果所测试的浮点型数testedDouble在20.0±0.5范围之内则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThan(16.0) );</code></p>
+
+<p> 注释：greaterThan匹配符表明如果所测试的数值testedNumber大于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThan (16.0) );</code></p>
+
+<p> 注释：lessThan匹配符表明如果所测试的数值testedNumber小于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释： greaterThanOrEqualTo匹配符表明如果所测试的数值testedNumber大于等于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释：lessThanOrEqualTo匹配符表明如果所测试的数值testedNumber小于等于16.0则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>collection相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( mapObject, hasEntry( "key", "value" ) );</code></p>
+
+<p> 注释：hasEntry匹配符表明如果测试的Map对象mapObject含有一个键值为"key"对应元素值为"value"的Entry项则测试通过</p></li>
+<li><p><code>assertThat( iterableObject, hasItem ( "element" ) );</code></p>
+
+<p> 注释：hasItem匹配符表明如果测试的迭代对象iterableObject含有元素“element”项则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasKey ( "key" ) );</code></p>
+
+<p> 注释： hasKey匹配符表明如果测试的Map对象mapObject含有键值“key”则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasValue ( "key" ) );</code></p>
+
+<p> 注释：hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”则测试通过</p></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/07/Java-HashMapInitiation/">Java 中 HashMap 的初始化</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-07T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>1、普通写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+map.put("Name", "June");  
+map.put("QQ", "4889983");
+</code></pre>
+
+<h3>2、文艺写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;() {
+    {
+    put("Name", "June");  
+    put("QQ", "4889983");  
+    }
+};
+</code></pre>
+
+<p>第一层括弧实际是定义了一个匿名内部类 (Anonymous Inner Class)，第二层括弧实际上是一个实例初始化块 (instance initializer block)，这个块在内部匿名类构造时被执行。这个块之所以被叫做“实例初始化块”是因为它们被定义在了一个类的实例范围内。</p>
+
+<p>类似都可以在ArrayList、set上推广：</p>
+
+<pre><code>List&lt;String&gt; names = new ArrayList&lt;String&gt;() {
+    {
+        for (int i = 0; i &lt; 10; i++) {
+            add("A" + i);
+        }
+    }
+};
+</code></pre>
+
+<h3>3、文艺写法存在的问题</h3>
+
+<p>如果这个对象要串行化，可能会导致串行化失败。</p>
+
+<ol>
+<li><p>此种方式是匿名内部类的声明方式，所以引用中持有着外部类的引用。所以当时串行化这个集合时外           部类也会被不知不觉的串行化，当外部类没有实现serialize接口时，就会报错。</p></li>
+<li><p>上例中，其实是声明了一个继承自HashMap的子类。然而有些串行化方法，例如要通过Gson串行化为         json，或者要串行化为xml时，类库中提供的方式，是无法串行化Hashset或者HashMap的子类的，从而导致串行化失败。解决办法：重新初始化为一个HashMap对象：</p>
+
+<p> <code>new HashMap(map);</code></p>
+
+<p> 这样就可以正常初始化了。</p></li>
+<li>效率比普通写法低。</li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/27/Linux-Vim%20key%20description/">Vim按键说明</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-27T00:00:00+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul class="list1"><li>第一部份：一般模式可用的按钮说明，光标移动、复制贴上、搜寻取代等</li></ul>
+
+
+<div class="fontwidth">
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">移动光标的方法</font></td></tr>
+    <tr><td style="text-align: center;" width="180">h 或 向左箭头键(←)</td>
+        <td>光标向左移动一个字符</td></tr>
+    <tr><td style="text-align: center;">j 或 向下箭头键(↓)</td>
+        <td>光标向下移动一个字符</td></tr>
+    <tr><td style="text-align: center;">k 或 向上箭头键(↑)</td>
+        <td>光标向上移动一个字符</td></tr>
+    <tr><td style="text-align: center;">l 或 向右箭头键(→)</td>
+        <td>光标向右移动一个字符</td></tr>
+    <tr><td colspan="2">
+        如果你将右手放在键盘上的话，你会发现 hjkl 是排列在一起的，因此可以使用这四个按钮来移动光标。
+        如果想要进行多次移动的话，例如向下移动 30 行，可以使用 "30j" 或 "30↓" 的组合按键，
+        亦即加上想要进行的次数(数字)后，按下动作即可！</td></tr>
+    <tr><td style="text-align: center;">[Ctrl] + [f]</td>
+        <td>屏幕『向下』移动一页，相当于 [Page Down]按键
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">[Ctrl] + [b]</td>
+        <td>屏幕『向上』移动一页，相当于 [Page Up] 按键
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">[Ctrl] + [d]</td>
+        <td>屏幕『向下』移动半页</td></tr>
+    <tr><td style="text-align: center;">[Ctrl] + [u]</td>
+        <td>屏幕『向上』移动半页</td></tr>
+    <tr><td style="text-align: center;">+</td>
+        <td>光标移动到非空格符的下一列</td></tr>
+    <tr><td style="text-align: center;">-</td>
+        <td>光标移动到非空格符的上一列</td></tr>
+    <tr><td style="text-align: center;">n&lt;space&gt;</td>
+        <td>那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n
+        个字符。例如 20&lt;space&gt; 则光标会向后面移动 20 个字符距离。</td></tr>
+    <tr><td style="text-align: center;">0 或功能键[Home]</td>
+        <td>这是数字『 0 』：移动到这一行的最前面字符处
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">$ 或功能键[End]</td>
+        <td>移动到这一行的最后面字符处(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">H</td>
+        <td>光标移动到这个屏幕的最上方那一行的第一个字符</td></tr>
+    <tr><td style="text-align: center;">M</td>
+        <td>光标移动到这个屏幕的中央那一行的第一个字符</td></tr>
+    <tr><td style="text-align: center;">L</td>
+        <td>光标移动到这个屏幕的最下方那一行的第一个字符</td></tr>
+    <tr><td style="text-align: center;">G</td>
+        <td>移动到这个档案的最后一行(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">nG</td>
+        <td>n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 
+        行(可配合 :set nu)</td></tr>
+    <tr><td style="text-align: center;">gg</td>
+        <td>移动到这个档案的第一行，相当于 1G 啊！
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">n&lt;Enter&gt;</td>
+        <td>n 为数字。光标向下移动 n 行(<span class="text_import2">常用</span>)</td></tr>
+<tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">搜寻与取代</font></td></tr>
+    <tr><td style="text-align: center;">/word</td>
+        <td>向光标之下寻找一个名称为 word 的字符串。例如要在档案内搜寻 vbird 
+        这个字符串，就输入 /vbird 即可！
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">?word</td>
+        <td>向光标之上寻找一个字符串名称为 word 的字符串。</td></tr>
+    <tr><td style="text-align: center;">n</td>
+        <td>这个 n 是英文按键。代表『<u>重复前一个搜寻的动作</u>』。举例来说，
+        如果刚刚我们执行 /vbird 去向下搜寻 vbird 这个字符串，则按下 n 后，会向下继续搜寻下一个名称为 vbird 
+        的字符串。如果是执行 ?vbird 的话，那么按下 n 则会向上继续搜寻名称为 vbird 的字符串！</td></tr>
+    <tr><td style="text-align: center;">N</td>
+        <td>这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。
+        例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。</td></tr>
+    <tr><td colspan="2">
+        使用 /word 配合 n 及 N 是非常有帮助的！可以让你重复的找到一些你搜寻的关键词！
+    </td></tr>
+    <tr><td style="text-align: center;">:n1,n2s/word1/word2/g</td>
+        <td>n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为
+        word2 ！举例来说，在 100 到 200 行之间搜寻 vbird 并取代为 VBIRD 则：<br>
+        『:100,200s/vbird/VBIRD/g』。(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">:1,$s/word1/word2/g</td>
+        <td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为
+        word2 ！(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">:1,$s/word1/word2/gc</td>
+        <td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为
+        word2 ！且在取代前显示提示字符给用户确认 (confirm)
+        是否需要取代！(<span class="text_import2">常用</span>)</td></tr>
+<tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">删除、复制与贴上</font></td></tr>
+    <tr><td style="text-align: center;">x, X</td>
+        <td>在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)，
+         X 为向前删除一个字符(相当于 [backspace] 亦即是退格键)
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">nx</td>
+        <td>n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符，
+        『10x』。</td></tr>
+    <tr><td style="text-align: center;">dd</td>
+        <td>删除游标所在的那一整列(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">ndd</td>
+        <td>n 为数字。删除光标所在的向下 n 列，例如 20dd 则是删除 20 列
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">d1G</td>
+        <td>删除光标所在到第一行的所有数据</td></tr>
+    <tr><td style="text-align: center;">dG</td>
+        <td>删除光标所在到最后一行的所有数据</td></tr>
+    <tr><td style="text-align: center;">d$</td>
+        <td>删除游标所在处，到该行的最后一个字符</td></tr>
+    <tr><td style="text-align: center;">d0</td>
+        <td>那个是数字的 0 ，删除游标所在处，到该行的最前面一个字符</td></tr>
+    <tr><td style="text-align: center;">yy</td>
+        <td>复制游标所在的那一行(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">nyy</td>
+        <td>n 为数字。复制光标所在的向下 n 列，例如 20yy 则是复制 20
+        列(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">y1G</td>
+        <td>复制游标所在列到第一列的所有数据</td></tr>
+    <tr><td style="text-align: center;">yG</td>
+        <td>复制游标所在列到最后一列的所有数据</td></tr>
+    <tr><td style="text-align: center;">y0</td>
+        <td>复制光标所在的那个字符到该行行首的所有数据</td></tr>
+    <tr><td style="text-align: center;">y$</td>
+        <td>复制光标所在的那个字符到该行行尾的所有数据</td></tr>
+    <tr><td style="text-align: center;">p, P</td>
+        <td>p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！
+        举例来说，我目前光标在第 20 行，且已经复制了 10 行数据。则按下 p 后，
+        那 10 行数据会贴在原本的 20 行之后，亦即由 21 行开始贴。但如果是按下 P 呢？
+        那么原本的第 20 行会被推到变成 30 行。
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">J</td>
+        <td>将光标所在列与下一列的数据结合成同一列</td></tr>
+    <tr><td style="text-align: center;">c</td>
+        <td>重复删除多个数据，例如向下删除 10 行，[ 10cj ]</td></tr>
+    <tr><td style="text-align: center;">u</td>
+        <td>复原前一个动作。(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">[Ctrl]+r</td>
+        <td>重做上一个动作。(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td colspan="2">这个 u 与 [Ctrl]+r 是很常用的指令！一个是复原，另一个则是重做一次～
+        利用这两个功能按键，你的编辑，嘿嘿！很快乐的啦！</td></tr>
+    <tr><td style="text-align: center;">.</td>
+        <td>不要怀疑！这就是小数点！意思是重复前一个动作的意思。
+        如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！
+        (<span class="text_import2">常用</span>)</td></tr>
+    </tbody></table><br>
+
+        <hr><ul class="list1"><li class="text_import1">第二部份：一般模式切换到编辑模式的可用的按钮说明</li></ul><br>
+
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">进入插入或取代的编辑模式</font></td></tr>
+    <tr><td style="text-align: center;" width="120">i, I</td>
+        <td>进入插入模式(Insert mode)：<br>
+        i 为『从目前光标所在处插入』， I 为『在目前所在行的第一个非空格符处开始插入』。
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">a, A</td>
+        <td>进入插入模式(Insert mode)：<br>
+        a 为『从目前光标所在的下一个字符处开始插入』， A
+        为『从光标所在行的最后一个字符处开始插入』。(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">o, O</td>
+        <td>进入插入模式(Insert mode)：<br>
+        这是英文字母 o 的大小写。o 为『在目前光标所在的下一行处插入新的一行』；
+        O 为在目前光标所在处的上一行插入新的一行！(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">r, R</td>
+        <td>进入取代模式(Replace mode)：<br>
+        r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下
+        ESC 为止；(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td colspan="2">上面这些按键中，在 vi 画面的左下角处会出现『--INSERT--』或『--REPLACE--』的字样。
+        由名称就知道该动作了吧！！特别注意的是，我们上面也提过了，你想要在档案里面输入字符时，
+        一定要在左下角处看到 INSERT 或 REPLACE 才能输入喔！</td></tr>
+    <tr><td style="text-align: center;">[Esc]</td>
+        <td>退出编辑模式，回到一般模式中(<span class="text_import2">常用</span>)</td></tr>
+    </tbody></table><br>
+
+        <hr><ul class="list1"><li class="text_import1">第三部份：一般模式切换到指令列模式的可用的按钮说明</li></ul><br>
+
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">指令列的储存、离开等指令</font></td></tr>
+    <tr><td style="text-align: center;" width="160">:w</td>
+        <td>将编辑的数据写入硬盘档案中(<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">:w!</td>
+        <td>若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入，
+        还是跟你对该档案的档案权限有关啊！</td></tr>
+    <tr><td style="text-align: center;">:q</td>
+        <td>离开 vi (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">:q!</td>
+        <td>若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。</td></tr>
+    <tr><td colspan="2">注意一下啊，那个惊叹号 (!) 在 vi 当中，常常具有『强制』的意思～</td></tr>
+    <tr><td style="text-align: center;">:wq</td>
+        <td>储存后离开，若为 :wq! 则为强制储存后离开
+        (<span class="text_import2">常用</span>)</td></tr>
+    <tr><td style="text-align: center;">ZZ</td>
+        <td>这是大写的 Z 喔！若档案没有更动，则不储存离开，若档案已经被更动过，则储存后离开！</td></tr>
+    <tr><td style="text-align: center;">:w [filename]</td>
+        <td>将编辑的数据储存成另一个档案（类似另存新档）</td></tr>
+    <tr><td style="text-align: center;">:r [filename]</td>
+        <td>在编辑的数据中，读入另一个档案的数据。亦即将 『filename』
+        这个档案内容加到游标所在行后面</td></tr>
+    <tr><td style="text-align: center;">:n1,n2 w [filename]</td>
+        <td>将 n1 到 n2 的内容储存成 filename 这个档案。</td></tr>
+    <tr><td style="text-align: center;">:! command</td>
+        <td>暂时离开 vi 到指令列模式下执行 command 的显示结果！例如<br>
+        『:! ls /home』即可在 vi 当中察看 /home 底下以 ls 输出的档案信息！</td></tr>
+<tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">vim 环境的变更</font></td></tr>
+    <tr><td style="text-align: center;">:set nu</td>
+        <td>显示行号，设定之后，会在每一行的前缀显示该行的行号</td></tr>
+    <tr><td style="text-align: center;">:set nonu</td>
+        <td>与 set nu 相反，为取消行号！</td></tr>
+</tbody></table><br>
+</div>
+
+
+<div class="fontwidth">
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">区块选择的按键意义</font></td></tr>
+    <tr><td style="text-align: center;">v</td><td>字符选择，会将光标经过的地方反白选择！</td></tr>
+    <tr><td style="text-align: center;">V</td><td>行选择，会将光标经过的行反白选择！</td></tr>
+    <tr><td style="text-align: center;">[Ctrl]+v</td><td>区块选择，可以用长方形的方式选择资料</td></tr>
+    <tr><td style="text-align: center;">y</td><td>将反白的地方复制起来</td></tr>
+    <tr><td style="text-align: center;">d</td><td>将反白的地方删除掉</td></tr>
+</tbody></table><br>
+</div>
+
+
+<div class="fontwidth">
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">多档案编辑的按键</font></td></tr>
+    <tr><td style="text-align: center;">:n</td><td>编辑下一个档案</td></tr>
+    <tr><td style="text-align: center;">:N</td><td>编辑上一个档案</td></tr>
+    <tr><td style="text-align: center;">:files</td><td>列出目前这个 vim 的开启的所有档案</td></tr>
+</tbody></table><br>
+</div>
+
+
+<div class="fontwidth">
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">多窗口情况下的按键功能</font></td></tr>
+    <tr><td style="text-align: center;" width="150">:sp [filename]</td><td>开启一个新窗口，如果有加 filename，
+        表示在新窗口开启一个新档案，否则表示两个窗口为同一个档案内容(同步显示)。</td></tr>
+    <tr><td style="text-align: center;">[ctrl]+w+ j<br>[ctrl]+w+↓</td><td>按键的按法是：先按下 [ctrl] 不放，
+        再按下 w 后放开所有的按键，然后再按下 j (或向下箭头键)，则光标可移动到下方的窗口。</td></tr>
+    <tr><td style="text-align: center;">[ctrl]+w+ k<br>[ctrl]+w+↑</td><td>同上，不过光标移动到上面的窗口。</td></tr>
+    <tr><td style="text-align: center;">[ctrl]+w+ q</td><td>其实就是 :q 结束离开啦！
+        举例来说，如果我想要结束下方的窗口，那么利用 [ctrl]+w+↓ 移动到下方窗口后，按下 :q 即可离开，
+        也可以按下 [ctrl]+w+q 啊！</td></tr>
+</tbody></table>
+</div>
+
+
+<div class="fontwidth">
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tbody><tr bgcolor="#182448"><td colspan="2" style="color: rgb(0, 0, 136); font-size: 1.1em; text-align: center;"><font color="#FFFFFF">vim 的环境设定参数</font></td></tr>
+    <tr><td style="text-align: center;" width="170">:set nu<br>:set nonu</td><td>就是设定与取消行号啊！</td></tr>
+    <tr><td style="text-align: center;">:set hlsearch<br>:set nohlsearch</td><td>hlsearch 就是 high light search(高亮度搜寻)。
+        这个就是设定是否将搜寻的字符串反白的设定值。默认值是 hlsearch</td></tr>
+    <tr><td style="text-align: center;">:set autoindent<br>:set noautoindent</td><td>是否自动缩排？autoindent 就是自动缩排。</td></tr>
+    <tr><td style="text-align: center;">:set backup</td><td>是否自动储存备份档？一般是 nobackup 的，
+        如果设定 backup 的话，那么当你更动任何一个档案时，则源文件会被另存成一个档名为 filename~ 的档案。
+        举例来说，我们编辑 hosts ，设定 :set backup ，那么当更动 hosts 时，在同目录下，就会产生 hosts~ 
+        文件名的档案，记录原始的 hosts 档案内容</td></tr>
+    <tr><td style="text-align: center;">:set ruler</td><td>还记得我们提到的右下角的一些状态栏说明吗？
+        这个 ruler 就是在显示或不显示该设定值的啦！</td></tr>
+    <tr><td style="text-align: center;">:set showmode</td><td>这个则是，是否要显示 --INSERT-- 
+        之类的字眼在左下角的状态栏。</td></tr>
+    <tr><td style="text-align: center;">:set backspace=(012)</td><td>一般来说，
+        如果我们按下 i 进入编辑模式后，可以利用退格键 (backspace) 来删除任意字符的。
+        但是，某些 distribution 则不许如此。此时，我们就可以透过 backspace 来设定啰～
+        当 backspace 为 2 时，就是可以删除任意值；0 或 1 时，仅可删除刚刚输入的字符，
+        而无法删除原本就已经存在的文字了！</td></tr>
+    <tr><td style="text-align: center;">:set all</td><td>显示目前所有的环境参数设定值。</td></tr>
+    <tr><td style="text-align: center;">:set</td><td>显示与系统默认值不同的设定参数，
+        一般来说就是你有自行变动过的设定参数啦！</td></tr>
+    <tr><td style="text-align: center;">:syntax on<br>:syntax off</td><td>是否依据程序相关语法显示不同颜色？
+        举例来说，在编辑一个纯文本档时，如果开头是以 # 开始，那么该行就会变成蓝色。
+        如果你懂得写程序，那么这个 :syntax on 还会主动的帮你除错呢！但是，
+        如果你仅是编写纯文本档案，要避免颜色对你的屏幕产生的干扰，则可以取消这个设定 。</td></tr>
+    <tr><td style="text-align: center;">:set bg=dark<br>:set bg=light</td><td>
+        可用以显示不同的颜色色调，预设是『 light 』。如果你常常发现批注的字体深蓝色实在很不容易看，
+        那么这里可以设定为 dark 喔！试看看，会有不同的样式呢！</td></tr>
+</tbody></table>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/27/Linux-Vim/">Vim粘贴代码时缩进混乱</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-02-27T00:00:00+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>1.问题</h2>
+
+<p>在终端Vim中粘贴代码时，发现插入的代码会有多余的缩进，而且会逐行累加。
+原因是终端把粘贴的文本存入键盘缓存（Keyboard Buffer）中，Vim则把这些内容作为用户的键盘输入来处理。
+导致在遇到换行符的时候，如果Vim开启了自动缩进，就会默认的把上一行缩进插入到下一行的开头，最终使代码变乱。</p>
+
+<p>另外SecureCRT会将你原来的文本原封不动的按照字符串的样式发送给服务器。所以当你的服务器上的vim设置为autoindent的话，在i模式下，那么它会将secureCRT传输而来的这些字符串再进行一下缩进。
+若你拷贝的文本中已经有表示缩进的空格或者制表符的话，它们也会被当成字符串，而被缩进。</p>
+
+<h2>2.解决方法</h2>
+
+<h5>1. 取消自动缩进</h5>
+
+<p>在命令模式下，使用“:set nosmartindent”和“:set noautoindent”取消自动缩进，然后再粘贴即可。完成后再开启自动缩进“:set smartindent”和“:set autoindent”，以上命令都可使用简写，比如“:set si”，可通过Vim的帮助“:help smartindent”查看相应说明。</p>
+
+<h5>2. Paste模式</h5>
+
+<p>Vim的编辑模式中，还有一个Paste模式，在该模式下，可将文本原本的粘贴到Vim中，以避免一些格式错误。通过“:set paste”和“:set nopaste”进入和退出该模式。更简便的方式是，在Vim中设置一个进入和退出Paste模式的快捷键，往“~/.vimrc”中添加一行配置“set pastetoggle=<F12>”，这样即可通过F12快速的在Paste模式中切换，当然快捷键在不冲突的前提下可以任意指定，具体如何指定，参考附带的教程链接。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/27/Linux-shell/">Shell编程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-01-27T00:00:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>1.什么是shell</h1>
+
+<p> shell script 是利用 shell 的功能所写的一个程序 (program)，这个程序是使用纯文字档，将一些 shell 的语法与命令(含外部命令)写在里面， 搭配正规表示法、管线命令与数据流重导向等功能，以达到我们所想要的处理目的。</p>
+
+<p>shell脚本示例</p>
+
+<pre><code>#!/bin/bash
+# Program:
+#   This program shows "Hello World!" in your screen.
+# History:
+# 2005/08/23    VBird   First release
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+echo -e "Hello World! \a \n"
+exit 0
+</code></pre>
+
+<p>示例解释</p>
+
+<ol>
+<li>第一行#!/bin/bash在宣告这个script使用的shell名称</li>
+</ol>
+
+
+<h2>注意事项</h2>
+
+<ol>
+<li>命令的运行是从上而下、从左而右的分析与运行；</li>
+<li>命令的下达就如同第五章内提到的： 命令、选项与参数间的多个空白都会被忽略掉；</li>
+<li>空白行也将被忽略掉，并且 [tab] 按键所推开的空白同样视为空白键；</li>
+<li>如果读取到一个 Enter 符号 (CR) ，就尝试开始运行该行 (或该串) 命令；</li>
+<li>至於如果一行的内容太多，则可以使用『 [Enter] 』来延伸至下一行；</li>
+<li><p>『 # 』可做为注解！任何加在 # 后面的数据将全部被视为注解文字而被忽略！</p></li>
+<li></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/25/Hadoop-Partition/">Hadoop中Partition解析</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-25T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>1.解析Partition</h3>
+
+<p>Map的结果，会通过partition分发到Reducer上，Reducer做完Reduce操作后，通过OutputFormat，进行输出，下面我们就来分析参与这个过程的类。
+Mapper的结果，可能送到Combiner做合并，Combiner在系统中并没有自己的基类，而是用Reducer作为Combiner的基类，他们对外的功能是一样的，
+只是使用的位置和使用时的上下文不太一样而已。Mapper最终处理的键值对&lt;key, value>，是需要送到Reducer去合并的，合并的时候，有相同key的
+键/值对会送到同一个Reducer那。哪个key到哪个Reducer的分配过程，是由Partitioner规定的。它只有一个方法,</p>
+
+<pre><code>getPartition(Text key, Text value, int numPartitions) 
+</code></pre>
+
+<p>输入时Map的结果对&lt;key, value>和Reducer的数目，输出则是分配的Reducer（整数编号）。就是指定Mapper输出的键值到哪一个reducer上去。系统缺省的Partition是HashPartitoner,它已key的Hash值对Reducer的数目取模，得到对应的Reducer。这样保证如果有相对的key值，肯定被分配到同一个reducer上。如果有N个reducer，编号就为0,1,2,3……（N-1)。</p>
+
+<p>Reducer是所有用户定制Reducer类的基类，和Mapper类似，它也有setup，reducer，cleanup和run方法，其中setup和cleanup含义和和Mapper相同，reduce是真正合并到Mapper结果的地方，它的输入是key和这个key对用的所有value的一个迭代器，同时还包括Reducer的上下文。系统中定义了两个非常简单的Reducer，IntSumReducer和LongSumReducer，分别用于对整形/长整形的value求和。</p>
+
+<p>Reduce的结果，通过Reducer.Context的方法collect输出到文件中，和输入类似，Hadoop引入了OutputFormat。OutputFormat依赖两个辅助接口：RecordWriter和OutputCommitter，来处理输出。RecordWriter提供了write方法，用于输出&lt;key, value>和close方法，用于关闭对应的输出。OutputCommitter提供了一系列方法，用户通过实现这些方法，可以定制OutputFormat生存期某些阶段需要的特殊操作。我们在TaskInputOutputContext中讨论过这些方法（明显，TaskInputOutputContext是OutputFormat和Reducer间的桥梁）。OutputFormat和RecordWriter分别对应着InputFormat和RecordReader，系统提供了空输出NullOutputFormat（什么结果都不输出，NullOutputFormat.RecordWriter只是示例，系统中没有定义），LazyOutputFormat（没在类图中出现，不分析），FilterOutputFormat（不分析）和基于文件FileOutputFormat的SequenceFileOutputFormat和TextOutputFormat输出。</p>
+
+<p>基于文件的输出FileOutputFormat利用了一些配置项配合工作，包括:</p>
+
+<ul>
+<li>mapred.output.compress：是否压缩；</li>
+<li>mapred.output.compression.codec：压缩方法；</li>
+<li>mapred.output.dir：输出路径；</li>
+<li>mapred.work.output.dir：输出工作路径。</li>
+<li>FileOutputFormat还依赖于FileOutputCommitter，通过FileOutputCommitter提供一些和Job，Task相关的临时文件管理功能。如FileOutputCommitter的setupJob，会在输出路径下创建一个名为_temporary的临时目录，cleanupJob则会删除这个目录。</li>
+<li>SequenceFileOutputFormat输出和TextOutputFormat输出分别对应输入的SequenceFileInputFormat和TextInputFormat。</li>
+</ul>
+
+
+<h3>2.代码实例</h3>
+
+<pre><code>package org.apache.hadoop.examples;
+
+import java.io.IOException;
+import java.util.*;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+import org.apache.hadoop.util.*;
+
+/**
+ * 输入文本，以tab间隔
+ * kaka    1       28
+ * hua     0       26
+ * chao    1
+ * tao     1       22
+ * mao     0       29      22
+ * */
+
+//Partitioner函数的使用
+
+public class MyPartitioner {
+    // Map函数
+    public static class MyMap extends MapReduceBase implements
+            Mapper&lt;LongWritable, Text, Text, Text&gt; {
+        public void map(LongWritable key, Text value,
+                OutputCollector&lt;Text, Text&gt; output, Reporter reporter)
+                throws IOException {
+            String[] arr_value = value.toString().split("\t");
+            //测试输出
+//          for(int i=0;i&lt;arr_value.length;i++)
+//          {
+//              System.out.print(arr_value[i]+"\t");
+//          }
+//          System.out.print(arr_value.length);
+//          System.out.println();       
+            Text word1 = new Text();
+            Text word2 = new Text();
+            if (arr_value.length &gt; 3) {
+                word1.set("long");
+                word2.set(value);
+            } else if (arr_value.length &lt; 3) {
+                word1.set("short");
+                word2.set(value);
+            } else {
+                word1.set("right");
+                word2.set(value);
+            }
+            output.collect(word1, word2);
+        }
+    }
+
+public static class MyReduce extends MapReduceBase implements
+        Reducer&lt;Text, Text, Text, Text&gt; {
+    public void reduce(Text key, Iterator&lt;Text&gt; values,
+            OutputCollector&lt;Text, Text&gt; output, Reporter reporter)
+            throws IOException {
+        int sum = 0;
+        System.out.println(key);
+        while (values.hasNext()) {
+            output.collect(key, new Text(values.next().getBytes()));    
+        }
+    }
+}
+
+// 接口Partitioner继承JobConfigurable，所以这里有两个override方法
+public static class MyPartitionerPar implements Partitioner&lt;Text, Text&gt; {
+    /**
+     * getPartition()方法的
+     * 输入参数：键/值对&lt;key,value&gt;与reducer数量numPartitions
+     * 输出参数：分配的Reducer编号，这里是result
+     * */
+    @Override
+    public int getPartition(Text key, Text value, int numPartitions) {
+        // TODO Auto-generated method stub
+        int result = 0;
+        System.out.println("numPartitions--" + numPartitions);
+        if (key.toString().equals("long")) {
+            result = 0 % numPartitions;
+        } else if (key.toString().equals("short")) {
+            result = 1 % numPartitions;
+        } else if (key.toString().equals("right")) {
+            result = 2 % numPartitions;
+        }
+        System.out.println("result--" + result);
+        return result;
+    }
+
+    @Override
+    public void configure(JobConf arg0) 
+    {
+        // TODO Auto-generated method stub
+    }
+}
+
+//输入参数：/home/hadoop/input/PartitionerExample /home/hadoop/output/Partitioner
+public static void main(String[] args) throws Exception {
+    JobConf conf = new JobConf(MyPartitioner.class);
+    conf.setJobName("MyPartitioner");
+
+    //控制reducer数量，因为要分3个区，所以这里设定了3个reducer
+    conf.setNumReduceTasks(3);
+
+    conf.setMapOutputKeyClass(Text.class);
+    conf.setMapOutputValueClass(Text.class);
+
+    //设定分区类
+    conf.setPartitionerClass(MyPartitionerPar.class);
+
+    conf.setOutputKeyClass(Text.class);
+    conf.setOutputValueClass(Text.class);
+
+    //设定mapper和reducer类
+    conf.setMapperClass(MyMap.class);
+    conf.setReducerClass(MyReduce.class);
+
+    conf.setInputFormat(TextInputFormat.class);
+    conf.setOutputFormat(TextOutputFormat.class);
+
+    FileInputFormat.setInputPaths(conf, new Path(args[0]));
+    FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+
+    JobClient.runJob(conf);
+}
+</code></pre>
+
+<p>}</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/17/atoi-implementation/">经典面试题atoi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-17T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>功能简介</h2>
+
+<p>atoi是把字符串转换成长整型数的一种函数</p>
+
+<h2>linux c库函数实现</h2>
+
+<pre><code>/***
+*long atol(char *nptr) - Convert string to long
+*
+*Purpose:
+*       Converts ASCII string pointed to by nptr to binary.
+*       Overflow is not detected.
+*
+*Entry:
+*       nptr = ptr to string to convert
+*
+*Exit:
+*       return long int value of the string
+*
+*Exceptions:
+*       None - overflow is not detected.
+*
+*******************************************************************************/
+
+long __cdecl atol(
+        const char *nptr
+        )
+{
+    int c;              /* current char */
+    long total;         /* current total */
+    int sign;           /* if '-', then negative, otherwise positive */
+
+    /* skip whitespace */
+    while ( isspace((int)(unsigned char)*nptr) )
+        ++nptr;
+
+    c = (int)(unsigned char)*nptr++;
+    sign = c;           /* save sign indication */
+    if (c == '-' || c == '+')
+        c = (int)(unsigned char)*nptr++;    /* skip sign */
+
+    total = 0;
+
+    while (isdigit(c)) {
+        total = 10 * total + (c - '0');     /* accumulate digit */
+        c = (int)(unsigned char)*nptr++;    /* get next char */
+    }
+
+    if (sign == '-')
+        return -total;
+    else
+        return total;   /* return result, negated if necessary */
+}
+
+
+/***
+*int atoi(char *nptr) - Convert string to long
+*
+*Purpose:
+*       Converts ASCII string pointed to by nptr to binary.
+*       Overflow is not detected.  Because of this, we can just use
+*       atol().
+*
+*Entry:
+*       nptr = ptr to string to convert
+*
+*Exit:
+*       return int value of the string
+*
+*Exceptions:
+*       None - overflow is not detected.
+*
+*******************************************************************************/
+
+int __cdecl atoi(
+        const char *nptr
+        )
+{
+        return (int)atol(nptr);
+}
+</code></pre>
+
+<p>面试官至少会期待应聘都能够在不需要提示的情况下，考虑到输入的字符串中有非数字字符和正负号，要考虑到最大的正整数和最小的负整数以及溢出。同时面试试还期待应聘者能够考虑到当输入的字符串不能转换成整数时，应该如何做错误处理。</p>
+
+<p>1、检查字符串是否为空</p>
+
+<p>2、对非法输入，返回0，并设置全局变量</p>
+
+<p>3、溢出</p>
+
+<p>4、空字符串""</p>
+
+<p>5、输入字符串只有"+&ldquo;或&rdquo;-&ldquo;号</p>
+
+<pre><code>// StringToInt.cpp : Defines the entry point for the console application.
+//
+
+// 《剑指Offer——名企面试官精讲典型编程题》代码
+// 著作权所有者：何海涛
+
+#include "stdafx.h"
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+long long StrToIntCore(const char* str, bool minus);
+
+enum Status {kValid = 0, kInvalid};
+int g_nStatus = kValid;
+
+int StrToInt(const char* str)
+{
+        g_nStatus = kInvalid;
+        long long num = 0;
+
+    if(str != NULL &amp;&amp; *str != '\0') 
+    {
+        bool minus = false;
+        if(*str == '+')
+            str ++;
+        else if(*str == '-') 
+        {
+            str ++;
+            minus = true;
+        }
+
+        if(*str != '\0') 
+        {
+            num = StrToIntCore(str, minus);
+        }
+    }
+
+    return (int)num;
+}
+
+long long StrToIntCore(const char* digit, bool minus)
+{
+    long long num = 0;
+
+    while(*digit != '\0') 
+    {
+        if(*digit &gt;= '0' &amp;&amp; *digit &lt;= '9') 
+        {
+            int flag = minus ? -1 : 1;
+            num = num * 10 + flag * (*digit - '0');
+
+            if((!minus &amp;&amp; num &gt; 0x7FFFFFFF) 
+                || (minus &amp;&amp; num &lt; (signed int)0x80000000))
+            {
+                num = 0;
+                break;
+            }
+
+            digit++;
+        }
+        else 
+        {
+            num = 0;
+            break;
+        }
+    }
+
+    if(*digit == '\0') 
+    {
+        g_nStatus = kValid;
+    }
+
+    return num;
+}
+
+// ====================测试代码====================
+void Test(char* string)
+{
+    int result = StrToInt(string);
+    if(result == 0 &amp;&amp; g_nStatus == kInvalid)
+        printf("the input %s is invalid.\n", string);
+    else
+        printf("number for %s is: %d.\n", string, result);
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+    Test(NULL);
+
+    Test("");
+
+    Test("123");
+
+    Test("+123");
+
+    Test("-123");
+
+    Test("1a33");
+
+    Test("+0");
+
+    Test("-0");
+
+    //有效的最大正整数, 0x7FFFFFFF
+    Test("+2147483647");    
+
+    Test("-2147483647");
+
+    Test("+2147483648");
+
+    //有效的最小负整数, 0x80000000
+    Test("-2147483648");    
+
+    Test("+2147483649");
+
+    Test("-2147483649");
+
+    Test("+");
+
+    Test("-");
+
+    return 0;
+}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/15/leanring-note/">面向对象的编程语言的特征</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-15T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有以下有4个主要特征</p>
+
+<h4>封装</h4>
+
+<p>封装是保证软件部件具有优良的模块性的基础，封装的目标就是要实现软件部件的“高内聚、低耦合”，防止程序相互依赖性而带来的变动影响。在面向对象的编程语言中，对象是封装
+的最基本单位，面向对象的封装比传统语言的封装更为清晰、更为有力。面向对象的封装就
+是把描述一个对象的属性和行为的代码封装在一个“模块”中，也就是一个类中，属性用变量
+定义，行为用方法进行定义，方法可以直接访问同一个对象中的属性。通常情况下，只要记
+住让变量和访问这个变量的方法放在一起，将一个类中的成员变量全部定义成私有的，只
+有这个类自己的方法才可以访问到这些成员变量，这就基本上实现对象的封装，就很容易
+找出要分配到这个类上的方法了，就基本上算是会面向对象的编程了。把握一个原则：把
+对同一事物进行操作的方法和相关的方法放在同一个类中，把方法和它操作的数据放在同
+一个类中。</p>
+
+<p>例如，人要在黑板上画圆，这一共涉及三个对象：人、黑板、圆，画圆的方法要分配给哪个
+对象呢？由于画圆需要使用到圆心和半径，圆心和半径显然是圆的属性，如果将它们在类中
+定义成了私有的成员变量，那么，画圆的方法必须分配给圆，它才能访问到圆心和半径这两
+个属性，人以后只是调用圆的画圆方法、表示给圆发给消息而已，画圆这个方法不应该分配
+在人这个对象上，这就是面向对象的封装性，即将对象封装成一个高度自治和相对封闭的
+个体，对象状态（属性）由这个对象自己的行为（方法）来读取和改变。一个更便于理解
+的例子就是，司机将火车刹住了，刹车的动作是分配给司机，还是分配给火车，显然，应该
+分配给火车，因为司机自身是不可能有那么大的力气将一个火车给停下来的，只有火车自己
+才能完成这一动作，火车需要调用内部的离合器和刹车片等多个器件协作才能完成刹车这个
+动作，司机刹车的过程只是给火车发了一个消息，通知火车要执行刹车动作而已。</p>
+
+<h4>抽象</h4>
+
+<p>抽象就是找出一些事物的相似和共性之处，然后将这些事物归为一个类，这个类只考虑这些
+事物的相似和共性之处，并且会忽略与当前主题和目标无关的那些方面，将注意力集中在与
+当前目标有关的方面。例如，看到一只蚂蚁和大象，你能够想象出它们的相同之处，那就是
+抽象。抽象包括行为抽象和状态抽象两个方面。例如，定义一个Person类，如下：</p>
+
+<pre><code>classPerson{
+    string name;
+    int age;
+</code></pre>
+
+<p>人本来是很复杂的事物，有很多方面，但因为当前系统只需要了解人的姓名和年龄，所以上
+面定义的类中只包含姓名和年龄这两个属性，这就是一种抽像，使用抽象可以避免考虑一些
+与目标无关的细节。我对抽象的理解就是不要用显微镜去看一个事物的所有方面，这样涉及
+的内容就太多了，而是要善于划分问题的边界，当前系统需要什么，就只考虑什么。</p>
+
+<h4>继承</h4>
+
+<p>在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在
+的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适
+合特殊的需要，这就是继承。继承是子类自动共享父类数据和方法的机制，这是类之间的一
+种关系，提高了软件的可重用性和可扩展性。</p>
+
+<h4>多态</h4>
+
+<p>多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编
+程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，
+该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。
+因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到
+各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以
+改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。多态性
+增强了软件的灵活性和扩展性。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/04/ML-basic-concept/">统计学习的一些概念</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-04T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>统计学习的一些概念</h1>
+
+<p>统计学习的输入变量和输出 变量可以有不同的类型。根据输入输出可划分为以下几类，及其相应常用的算法。</p>
+
+<h5>回归问题</h5>
+
+<ul>
+<li>输入变量与输出变量均为连续变量的预测问题；</li>
+<li>最小二乘法</li>
+</ul>
+
+
+<h5>分类问题</h5>
+
+<ul>
+<li>输入变量可以使离散的或连续的，但输出变量是有限个离散变量的预测问题；</li>
+<li>K邻近法、感知机、朴素贝叶斯法、决策树、决策列表、逻辑斯谛回归模型、支持向量机、提升方法、贝叶斯网络、神经网络，Winnow等</li>
+</ul>
+
+
+<h5>标准问题</h5>
+
+<ul>
+<li>输入变量与输出变量均为离散变量的预测问题。</li>
+<li>隐形马尔科夫模型、条件随机场</li>
+</ul>
+
+
+<p>输入定义在输入(特征）空间，输入=特征向量</p>
+
+<p>训练数据由输入与输出成对组成训练集</p>
+
+<p>统计学习方法三要素：<strong>方法=模型+策略+算法</strong></p>
+
+<p>学习方法的泛化能力是指由该方法学习到的模型对位置数据的预测能力。可以用泛化误差来衡量。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/3">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/index.html">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

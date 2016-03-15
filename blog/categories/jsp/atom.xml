@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Jsp | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/jsp/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JSP学习笔记一]]></title>
+    <link href="http://yblu.github.io/blog/2014/11/25/javaweb-note-1/"/>
+    <updated>2014-11-25T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2014/11/25/javaweb-note-1</id>
+    <content type="html"><![CDATA[<h1>1. JSP简介</h1>
+
+<p>JSP是 Java ServerPages的缩写，是有SUN公司于1999年6月推出的技术，通过在HTML中插入脚本代码从而构成JSP页面。JSP是基于 Java Servlet 及整个 Java 体系的Web开发技术，可以利用这一技术来构建安全的，跨平台的动态Web站点。JSP目前在不断的优化。
+JSP具有以下主要特点</p>
+
+<ul>
+<li>程序逻辑和显示分离</li>
+<li>可重用组件</li>
+<li>使用标签化页面开发</li>
+<li>具有Java的特点</li>
+</ul>
+
+
+<h1>2. JSP运行机制</h1>
+
+<p>先看简单的JSP示例</p>
+
+<p>HelloWorld.jsp</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello JSP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+    out.println("Hello JSP!");
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>在浏览器地址栏中输入HelloJSP.jsp，打开页面可以得到输出</p>
+
+<pre><code>Hello JSP
+</code></pre>
+
+<p>该示例代码中通过out.println()实现网页的输出是为了与转义之后的Servlet文件比较。</p>
+
+<p>运行完成该JSP页面后，打开Tomcat安装目录下的Work文件夹。在该目录中可以找到与该JSP文件相对应的Java文件，以及编译后的Class文件。下面勒出了部分Java代码。</p>
+
+<pre><code>out.write("&lt;html&gt;\r\n");
+out.write("&lt;head&gt;\r\n");
+out.write("&lt;title&gt;Hello JSP&lt;/title&gt;\r\n");
+out.write("&lt;/head&gt;\r\n");
+out.write("&lt;body&gt;\r\n");
+out.write("\t");
+out.println("Hello JSP!");
+out.write("\r\n");
+out.write("&lt;/body&gt;\r\n");
+out.write("&lt;/html&gt;\r\n");
+</code></pre>
+
+<p>使用I浏览器打开该JSP页面，选择查看页面源代码，代码如下所示</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello JSP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Hello JSP!
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>可以把JSP页面的执行分成两个阶段，一个是转译阶段，一个是请求阶段。</p>
+
+<ul>
+<li> 转译阶段：JSP页面转换成Servlet类。</li>
+<li> 请求阶段：Servlet类执行，将相应结果发送给客户端。</li>
+</ul>
+
+
+<p>下面来看JSP的执行流程示意图，如下图所示。
+<image></image>
+该执行流程解释如下：</p>
+
+<ol>
+<li>用户（客户机）请求相应的JSP页面。</li>
+<li>服务器找到相应的JSP页面。</li>
+<li>服务器将JSP转译成Servlet的源代码。</li>
+<li>服务器将Servlet源代码编译成class文件。</li>
+<li>服务器将class文件加载到内存并执行。</li>
+<li>服务器将class文件执行后生成的HTML代码发送给客户机，客户机浏览器根据相应的HTML代码进行显示。</li>
+</ol>
+
+
+<p>如果该JSP页面为第一次执行，那么会经过这两个阶段，而如果不是第一次执行，那么僵只会执行清酒阶段。这要是为什么第二次执行JSP页面时明显比第一次执行要快的原因。
+如果修改了JSP页面，那么服务器将发现该修改，并重新执行转译阶段和请求阶段。这也是为什么修改页面之后访问速度变慢的原因。</p>
+]]></content>
+  </entry>
+  
+</feed>

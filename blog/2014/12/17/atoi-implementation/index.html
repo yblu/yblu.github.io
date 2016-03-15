@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>经典面试题atoi - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="code">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2014/12/17/atoi-implementation/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">经典面试题atoi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-17T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>功能简介</h2>
+
+<p>atoi是把字符串转换成长整型数的一种函数</p>
+
+<h2>linux c库函数实现</h2>
+
+<pre><code>/***
+*long atol(char *nptr) - Convert string to long
+*
+*Purpose:
+*       Converts ASCII string pointed to by nptr to binary.
+*       Overflow is not detected.
+*
+*Entry:
+*       nptr = ptr to string to convert
+*
+*Exit:
+*       return long int value of the string
+*
+*Exceptions:
+*       None - overflow is not detected.
+*
+*******************************************************************************/
+
+long __cdecl atol(
+        const char *nptr
+        )
+{
+    int c;              /* current char */
+    long total;         /* current total */
+    int sign;           /* if '-', then negative, otherwise positive */
+
+    /* skip whitespace */
+    while ( isspace((int)(unsigned char)*nptr) )
+        ++nptr;
+
+    c = (int)(unsigned char)*nptr++;
+    sign = c;           /* save sign indication */
+    if (c == '-' || c == '+')
+        c = (int)(unsigned char)*nptr++;    /* skip sign */
+
+    total = 0;
+
+    while (isdigit(c)) {
+        total = 10 * total + (c - '0');     /* accumulate digit */
+        c = (int)(unsigned char)*nptr++;    /* get next char */
+    }
+
+    if (sign == '-')
+        return -total;
+    else
+        return total;   /* return result, negated if necessary */
+}
+
+
+/***
+*int atoi(char *nptr) - Convert string to long
+*
+*Purpose:
+*       Converts ASCII string pointed to by nptr to binary.
+*       Overflow is not detected.  Because of this, we can just use
+*       atol().
+*
+*Entry:
+*       nptr = ptr to string to convert
+*
+*Exit:
+*       return int value of the string
+*
+*Exceptions:
+*       None - overflow is not detected.
+*
+*******************************************************************************/
+
+int __cdecl atoi(
+        const char *nptr
+        )
+{
+        return (int)atol(nptr);
+}
+</code></pre>
+
+<p>面试官至少会期待应聘都能够在不需要提示的情况下，考虑到输入的字符串中有非数字字符和正负号，要考虑到最大的正整数和最小的负整数以及溢出。同时面试试还期待应聘者能够考虑到当输入的字符串不能转换成整数时，应该如何做错误处理。</p>
+
+<p>1、检查字符串是否为空</p>
+
+<p>2、对非法输入，返回0，并设置全局变量</p>
+
+<p>3、溢出</p>
+
+<p>4、空字符串""</p>
+
+<p>5、输入字符串只有"+&ldquo;或&rdquo;-&ldquo;号</p>
+
+<pre><code>// StringToInt.cpp : Defines the entry point for the console application.
+//
+
+// 《剑指Offer——名企面试官精讲典型编程题》代码
+// 著作权所有者：何海涛
+
+#include "stdafx.h"
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+long long StrToIntCore(const char* str, bool minus);
+
+enum Status {kValid = 0, kInvalid};
+int g_nStatus = kValid;
+
+int StrToInt(const char* str)
+{
+        g_nStatus = kInvalid;
+        long long num = 0;
+
+    if(str != NULL &amp;&amp; *str != '\0') 
+    {
+        bool minus = false;
+        if(*str == '+')
+            str ++;
+        else if(*str == '-') 
+        {
+            str ++;
+            minus = true;
+        }
+
+        if(*str != '\0') 
+        {
+            num = StrToIntCore(str, minus);
+        }
+    }
+
+    return (int)num;
+}
+
+long long StrToIntCore(const char* digit, bool minus)
+{
+    long long num = 0;
+
+    while(*digit != '\0') 
+    {
+        if(*digit &gt;= '0' &amp;&amp; *digit &lt;= '9') 
+        {
+            int flag = minus ? -1 : 1;
+            num = num * 10 + flag * (*digit - '0');
+
+            if((!minus &amp;&amp; num &gt; 0x7FFFFFFF) 
+                || (minus &amp;&amp; num &lt; (signed int)0x80000000))
+            {
+                num = 0;
+                break;
+            }
+
+            digit++;
+        }
+        else 
+        {
+            num = 0;
+            break;
+        }
+    }
+
+    if(*digit == '\0') 
+    {
+        g_nStatus = kValid;
+    }
+
+    return num;
+}
+
+// ====================测试代码====================
+void Test(char* string)
+{
+    int result = StrToInt(string);
+    if(result == 0 &amp;&amp; g_nStatus == kInvalid)
+        printf("the input %s is invalid.\n", string);
+    else
+        printf("number for %s is: %d.\n", string, result);
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+    Test(NULL);
+
+    Test("");
+
+    Test("123");
+
+    Test("+123");
+
+    Test("-123");
+
+    Test("1a33");
+
+    Test("+0");
+
+    Test("-0");
+
+    //有效的最大正整数, 0x7FFFFFFF
+    Test("+2147483647");    
+
+    Test("-2147483647");
+
+    Test("+2147483648");
+
+    //有效的最小负整数, 0x80000000
+    Test("-2147483648");    
+
+    Test("+2147483649");
+
+    Test("-2147483649");
+
+    Test("+");
+
+    Test("-");
+
+    return 0;
+}
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-12-17T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/learning/'>learning</a>, <a class='category' href='/blog/categories/oo/'>oo</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2014/12/17/atoi-implementation/" data-via="" data-counturl="http://yblu.github.io/blog/2014/12/17/atoi-implementation/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/12/15/leanring-note/" title="Previous Post: 面向对象的编程语言的特征">&laquo; 面向对象的编程语言的特征</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/12/25/Hadoop-Partition/" title="Next Post: Hadoop中Partition解析">Hadoop中Partition解析 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

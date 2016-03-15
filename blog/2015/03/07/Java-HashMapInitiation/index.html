@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Java 中 HashMap 的初始化 - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="java">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Java 中 HashMap 的初始化</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-07T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>1、普通写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+map.put("Name", "June");  
+map.put("QQ", "4889983");
+</code></pre>
+
+<h3>2、文艺写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;() {
+    {
+    put("Name", "June");  
+    put("QQ", "4889983");  
+    }
+};
+</code></pre>
+
+<p>第一层括弧实际是定义了一个匿名内部类 (Anonymous Inner Class)，第二层括弧实际上是一个实例初始化块 (instance initializer block)，这个块在内部匿名类构造时被执行。这个块之所以被叫做“实例初始化块”是因为它们被定义在了一个类的实例范围内。</p>
+
+<p>类似都可以在ArrayList、set上推广：</p>
+
+<pre><code>List&lt;String&gt; names = new ArrayList&lt;String&gt;() {
+    {
+        for (int i = 0; i &lt; 10; i++) {
+            add("A" + i);
+        }
+    }
+};
+</code></pre>
+
+<h3>3、文艺写法存在的问题</h3>
+
+<p>如果这个对象要串行化，可能会导致串行化失败。</p>
+
+<ol>
+<li><p>此种方式是匿名内部类的声明方式，所以引用中持有着外部类的引用。所以当时串行化这个集合时外           部类也会被不知不觉的串行化，当外部类没有实现serialize接口时，就会报错。</p></li>
+<li><p>上例中，其实是声明了一个继承自HashMap的子类。然而有些串行化方法，例如要通过Gson串行化为         json，或者要串行化为xml时，类库中提供的方式，是无法串行化Hashset或者HashMap的子类的，从而导致串行化失败。解决办法：重新初始化为一个HashMap对象：</p>
+
+<p> <code>new HashMap(map);</code></p>
+
+<p> 这样就可以正常初始化了。</p></li>
+<li>效率比普通写法低。</li>
+</ol>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-03-07T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/learning/'>learning</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation/" data-via="" data-counturl="http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/27/Linux-Vim%20key%20description/" title="Previous Post: Vim按键说明">&laquo; Vim按键说明</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/03/13/Java-assertThat/" title="Next Post: assertThat的用法">assertThat的用法 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

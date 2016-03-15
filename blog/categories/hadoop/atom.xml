@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Hadoop | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/hadoop/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hadoop FS Shell命令]]></title>
+    <link href="http://yblu.github.io/blog/2015/04/03/hadoop-fs%20shell/"/>
+    <updated>2015-04-03T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/04/03/hadoop-fs shell</id>
+    <content type="html"><![CDATA[<h2>FS Shell</h2>
+
+<p>调用文件系统(FS)Shell命令应使用 bin/hadoop fs <args>的形式。 所有的的FS shell命令使用URI路径作为参数。URI格式是scheme://authority/path。对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。其中scheme和authority参数都是可选的，如果未加指定，就会使用配置中指定的默认scheme。一个HDFS文件或目录比如/parent/child可以表示成hdfs://namenode:namenodeport/parent/child，或者更简单的/parent/child（假设你配置文件中的默认值是namenode:namenodeport）。大多数FS Shell命令的行为和对应的Unix Shell命令类似，不同之处会在下面介绍各命令使用详情时指出。出错信息会输出到stderr，其他信息输出到stdout。</p>
+
+<h3>cat</h3>
+
+<p>使用方法：<code>hadoop fs -cat URI [URI …]</code></p>
+
+<p>将路径指定文件的内容输出到stdout。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><p><code>hadoop fs -cat hdfs://host1:port1/file1 hdfs://host2:port2/file2</code></p></li>
+<li><p><code>hadoop fs -cat file:///file3 /user/hadoop/file4</code></p></li>
+</ul>
+
+
+<p>返回值：
+成功返回0，失败返回-1。</p>
+
+<h3>chgrp</h3>
+
+<p>使用方法：<code>hadoop fs -chgrp [-R] GROUP URI [URI …]</code></p>
+
+<p>改变文件所属的组。使用-R将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。更多的信息请参见HDFS权限用户指南。</p>
+
+<h3>chmod</h3>
+
+<p>使用方法：<code>hadoop fs -chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; URI [URI …]</code></p>
+
+<p>改变文件的权限。使用-R将使改变在目录结构下递归进行。命令的使用者必须是文件的所有者或者超级用户。更多的信息请参见HDFS权限用户指南。</p>
+
+<h3>chown</h3>
+
+<p>使用方法：<code>hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]</code></p>
+
+<p>改变文件的拥有者。使用-R将使改变在目录结构下递归进行。命令的使用者必须是超级用户。更多的信息请参见HDFS权限用户指南。</p>
+
+<h3>copyFromLocal</h3>
+
+<p>使用方法：<code>hadoop fs -copyFromLocal &lt;localsrc&gt; URI</code></p>
+
+<p>除了限定源路径是一个本地文件外，和put命令相似。</p>
+
+<h3>copyToLocal</h3>
+
+<p>使用方法：<code>hadoop fs -copyToLocal [-ignorecrc] [-crc] URI &lt;localdst&gt;</code></p>
+
+<p>除了限定目标路径是一个本地文件外，和get命令类似。</p>
+
+<h3>cp</h3>
+
+<p>使用方法：<code>hadoop fs -cp URI [URI …] &lt;dest&gt;</code></p>
+
+<p>将文件从源路径复制到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2</code></li>
+<li><code>hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2 /user/hadoop/dir</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>du</h3>
+
+<p>使用方法：<code>hadoop fs -du URI [URI …]</code></p>
+
+<p>显示目录中所有文件的大小，或者当只指定一个文件时，显示此文件的大小。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -du /user/hadoop/dir1 /user/hadoop/file1 hdfs://host:port/user/hadoop/dir1</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>dus</h3>
+
+<p>使用方法：<code>hadoop fs -dus &lt;args&gt;</code></p>
+
+<p>显示文件的大小。</p>
+
+<h3>expunge</h3>
+
+<p>使用方法：<code>hadoop fs -expunge</code></p>
+
+<p>清空回收站。请参考HDFS设计文档以获取更多关于回收站特性的信息。</p>
+
+<h3>get</h3>
+
+<p>使用方法：hadoop fs -get [-ignorecrc] [-crc] <src> <localdst></p>
+
+<p>复制文件到本地文件系统。可用-ignorecrc选项复制CRC校验失败的文件。使用-crc选项复制文件以及CRC信息。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><p><code>hadoop fs -get /user/hadoop/file localfile</code></p></li>
+<li><p><code>hadoop fs -get hdfs://host:port/user/hadoop/file localfile</code></p></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>getmerge</h3>
+
+<p>使用方法：<code>hadoop fs -getmerge &lt;src&gt; &lt;localdst&gt; [addnl]</code></p>
+
+<p>接受一个源目录和一个目标文件作为输入，并且将源目录中所有的文件连接成本地目标文件。addnl是可选的，用于指定在每个文件结尾添加一个换行符。</p>
+
+<h3>ls</h3>
+
+<p>使用方法：<code>hadoop fs -ls &lt;args&gt;</code></p>
+
+<p>如果是文件，则按照如下格式返回文件信息：</p>
+
+<p>文件名 &lt;副本数> 文件大小 修改日期 修改时间 权限 用户ID 组ID</p>
+
+<p>如果是目录，则返回它直接子文件的一个列表，就像在Unix中一样。目录返回列表的信息如下：</p>
+
+<p>目录名 &lt;dir> 修改日期 修改时间 权限 用户ID 组ID</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -ls /user/hadoop/file1 /user/hadoop/file2 hdfs://host:port/user/hadoop/dir1 /nonexistentfile</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>lsr</h3>
+
+<p>使用方法：<code>hadoop fs -lsr &lt;args&gt;</code></p>
+
+<p>ls命令的递归版本。类似于Unix中的ls -R。</p>
+
+<h3>mkdir</h3>
+
+<p>使用方法：<code>hadoop fs -mkdir &lt;paths&gt;</code></p>
+
+<p>接受路径指定的uri作为参数，创建这些目录。其行为类似于Unix的mkdir -p，它会创建路径中的各级父目录。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -mkdir /user/hadoop/dir1 /user/hadoop/dir2</code></li>
+<li><code>hadoop fs -mkdir hdfs://host1:port1/user/hadoop/dir hdfs://host2:port2/user/hadoop/dir</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>movefromLocal</h3>
+
+<p>使用方法：<code>dfs -moveFromLocal &lt;src&gt; &lt;dst&gt;</code></p>
+
+<p>输出一个”not implemented“信息。</p>
+
+<h3>mv</h3>
+
+<p>使用方法：<code>hadoop fs -mv URI [URI …] &lt;dest&gt;</code></p>
+
+<p>将文件从源路径移动到目标路径。这个命令允许有多个源路径，此时目标路径必须是一个目录。不允许在不同的文件系统间移动文件。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -mv /user/hadoop/file1 /user/hadoop/file2</code></li>
+<li><code>hadoop fs -mv hdfs://host:port/file1 hdfs://host:port/file2 hdfs://host:port/file3 hdfs://host:port/dir1</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>put</h3>
+
+<p>使用方法：<code>hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;</code></p>
+
+<p>从本地文件系统中复制单个或多个源路径到目标文件系统。也支持从标准输入中读取输入写入目标文件系统。</p>
+
+<ul>
+<li><code>hadoop fs -put localfile /user/hadoop/hadoopfile</code></li>
+<li><code>hadoop fs -put localfile1 localfile2 /user/hadoop/hadoopdir</code></li>
+<li><code>hadoop fs -put localfile hdfs://host:port/hadoop/hadoopfile</code></li>
+<li><code>hadoop fs -put hdfs://host:port/hadoop/hadoopfile</code></li>
+</ul>
+
+
+<p>从标准输入中读取输入。</p>
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>rm</h3>
+
+<p>使用方法：<code>hadoop fs -rm URI [URI …]</code></p>
+
+<p>删除指定的文件。只删除非空目录和文件。请参考rmr命令了解递归删除。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -rm hdfs://host:port/file /user/hadoop/emptydir</code></li>
+</ul>
+
+
+<p>返回值：
+成功返回0，失败返回-1。</p>
+
+<h3>rmr</h3>
+
+<p>使用方法：<code>hadoop fs -rmr URI [URI …]</code></p>
+
+<p>delete的递归版本。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -rmr /user/hadoop/dir</code></li>
+<li><code>hadoop fs -rmr hdfs://host:port/user/hadoop/dir</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>setrep</h3>
+
+<p>使用方法：<code>hadoop fs -setrep [-R] &lt;path&gt;</code></p>
+
+<p>改变一个文件的副本系数。-R选项用于递归改变目录下所有文件的副本系数。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -setrep -w 3 -R /user/hadoop/dir1</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>stat</h3>
+
+<p>使用方法：<code>hadoop fs -stat URI [URI …]</code></p>
+
+<p>返回指定路径的统计信息。</p>
+
+<p>示例：</p>
+
+<pre><code>* hadoop fs -stat path
+</code></pre>
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>tail</h3>
+
+<p>使用方法：<code>hadoop fs -tail [-f] URI</code></p>
+
+<p>将文件尾部1K字节的内容输出到stdout。支持-f选项，行为和Unix中一致。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -tail pathname</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+
+<h3>test</h3>
+
+<p>使用方法：<code>hadoop fs -test -[ezd] URI</code></p>
+
+<p>选项：</p>
+
+<p>-e 检查文件是否存在。如果存在则返回0。</p>
+
+<p>-z 检查文件是否是0字节。如果是则返回0。</p>
+
+<p>-d 如果路径是个目录，则返回1，否则返回0。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop fs -test -e filename</code></li>
+</ul>
+
+
+<h3>text</h3>
+
+<p>使用方法：<code>hadoop fs -text &lt;src&gt;</code></p>
+
+<p>将源文件输出为文本格式。允许的格式是zip和TextRecordInputStream。</p>
+
+<h3>touchz</h3>
+
+<p>使用方法：<code>hadoop fs -touchz URI [URI …]</code></p>
+
+<p>创建一个0字节的空文件。</p>
+
+<p>示例：</p>
+
+<ul>
+<li><code>hadoop -touchz pathname</code></li>
+</ul>
+
+
+<p>返回值：</p>
+
+<p>成功返回0，失败返回-1。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hadoop中Partition解析]]></title>
+    <link href="http://yblu.github.io/blog/2014/12/25/Hadoop-Partition/"/>
+    <updated>2014-12-25T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2014/12/25/Hadoop-Partition</id>
+    <content type="html"><![CDATA[<h3>1.解析Partition</h3>
+
+<p>Map的结果，会通过partition分发到Reducer上，Reducer做完Reduce操作后，通过OutputFormat，进行输出，下面我们就来分析参与这个过程的类。
+Mapper的结果，可能送到Combiner做合并，Combiner在系统中并没有自己的基类，而是用Reducer作为Combiner的基类，他们对外的功能是一样的，
+只是使用的位置和使用时的上下文不太一样而已。Mapper最终处理的键值对&lt;key, value>，是需要送到Reducer去合并的，合并的时候，有相同key的
+键/值对会送到同一个Reducer那。哪个key到哪个Reducer的分配过程，是由Partitioner规定的。它只有一个方法,</p>
+
+<pre><code>getPartition(Text key, Text value, int numPartitions) 
+</code></pre>
+
+<p>输入时Map的结果对&lt;key, value>和Reducer的数目，输出则是分配的Reducer（整数编号）。就是指定Mapper输出的键值到哪一个reducer上去。系统缺省的Partition是HashPartitoner,它已key的Hash值对Reducer的数目取模，得到对应的Reducer。这样保证如果有相对的key值，肯定被分配到同一个reducer上。如果有N个reducer，编号就为0,1,2,3……（N-1)。</p>
+
+<p>Reducer是所有用户定制Reducer类的基类，和Mapper类似，它也有setup，reducer，cleanup和run方法，其中setup和cleanup含义和和Mapper相同，reduce是真正合并到Mapper结果的地方，它的输入是key和这个key对用的所有value的一个迭代器，同时还包括Reducer的上下文。系统中定义了两个非常简单的Reducer，IntSumReducer和LongSumReducer，分别用于对整形/长整形的value求和。</p>
+
+<p>Reduce的结果，通过Reducer.Context的方法collect输出到文件中，和输入类似，Hadoop引入了OutputFormat。OutputFormat依赖两个辅助接口：RecordWriter和OutputCommitter，来处理输出。RecordWriter提供了write方法，用于输出&lt;key, value>和close方法，用于关闭对应的输出。OutputCommitter提供了一系列方法，用户通过实现这些方法，可以定制OutputFormat生存期某些阶段需要的特殊操作。我们在TaskInputOutputContext中讨论过这些方法（明显，TaskInputOutputContext是OutputFormat和Reducer间的桥梁）。OutputFormat和RecordWriter分别对应着InputFormat和RecordReader，系统提供了空输出NullOutputFormat（什么结果都不输出，NullOutputFormat.RecordWriter只是示例，系统中没有定义），LazyOutputFormat（没在类图中出现，不分析），FilterOutputFormat（不分析）和基于文件FileOutputFormat的SequenceFileOutputFormat和TextOutputFormat输出。</p>
+
+<p>基于文件的输出FileOutputFormat利用了一些配置项配合工作，包括:</p>
+
+<ul>
+<li>mapred.output.compress：是否压缩；</li>
+<li>mapred.output.compression.codec：压缩方法；</li>
+<li>mapred.output.dir：输出路径；</li>
+<li>mapred.work.output.dir：输出工作路径。</li>
+<li>FileOutputFormat还依赖于FileOutputCommitter，通过FileOutputCommitter提供一些和Job，Task相关的临时文件管理功能。如FileOutputCommitter的setupJob，会在输出路径下创建一个名为_temporary的临时目录，cleanupJob则会删除这个目录。</li>
+<li>SequenceFileOutputFormat输出和TextOutputFormat输出分别对应输入的SequenceFileInputFormat和TextInputFormat。</li>
+</ul>
+
+
+<h3>2.代码实例</h3>
+
+<pre><code>package org.apache.hadoop.examples;
+
+import java.io.IOException;
+import java.util.*;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+import org.apache.hadoop.util.*;
+
+/**
+ * 输入文本，以tab间隔
+ * kaka    1       28
+ * hua     0       26
+ * chao    1
+ * tao     1       22
+ * mao     0       29      22
+ * */
+
+//Partitioner函数的使用
+
+public class MyPartitioner {
+    // Map函数
+    public static class MyMap extends MapReduceBase implements
+            Mapper&lt;LongWritable, Text, Text, Text&gt; {
+        public void map(LongWritable key, Text value,
+                OutputCollector&lt;Text, Text&gt; output, Reporter reporter)
+                throws IOException {
+            String[] arr_value = value.toString().split("\t");
+            //测试输出
+//          for(int i=0;i&lt;arr_value.length;i++)
+//          {
+//              System.out.print(arr_value[i]+"\t");
+//          }
+//          System.out.print(arr_value.length);
+//          System.out.println();       
+            Text word1 = new Text();
+            Text word2 = new Text();
+            if (arr_value.length &gt; 3) {
+                word1.set("long");
+                word2.set(value);
+            } else if (arr_value.length &lt; 3) {
+                word1.set("short");
+                word2.set(value);
+            } else {
+                word1.set("right");
+                word2.set(value);
+            }
+            output.collect(word1, word2);
+        }
+    }
+
+public static class MyReduce extends MapReduceBase implements
+        Reducer&lt;Text, Text, Text, Text&gt; {
+    public void reduce(Text key, Iterator&lt;Text&gt; values,
+            OutputCollector&lt;Text, Text&gt; output, Reporter reporter)
+            throws IOException {
+        int sum = 0;
+        System.out.println(key);
+        while (values.hasNext()) {
+            output.collect(key, new Text(values.next().getBytes()));    
+        }
+    }
+}
+
+// 接口Partitioner继承JobConfigurable，所以这里有两个override方法
+public static class MyPartitionerPar implements Partitioner&lt;Text, Text&gt; {
+    /**
+     * getPartition()方法的
+     * 输入参数：键/值对&lt;key,value&gt;与reducer数量numPartitions
+     * 输出参数：分配的Reducer编号，这里是result
+     * */
+    @Override
+    public int getPartition(Text key, Text value, int numPartitions) {
+        // TODO Auto-generated method stub
+        int result = 0;
+        System.out.println("numPartitions--" + numPartitions);
+        if (key.toString().equals("long")) {
+            result = 0 % numPartitions;
+        } else if (key.toString().equals("short")) {
+            result = 1 % numPartitions;
+        } else if (key.toString().equals("right")) {
+            result = 2 % numPartitions;
+        }
+        System.out.println("result--" + result);
+        return result;
+    }
+
+    @Override
+    public void configure(JobConf arg0) 
+    {
+        // TODO Auto-generated method stub
+    }
+}
+
+//输入参数：/home/hadoop/input/PartitionerExample /home/hadoop/output/Partitioner
+public static void main(String[] args) throws Exception {
+    JobConf conf = new JobConf(MyPartitioner.class);
+    conf.setJobName("MyPartitioner");
+
+    //控制reducer数量，因为要分3个区，所以这里设定了3个reducer
+    conf.setNumReduceTasks(3);
+
+    conf.setMapOutputKeyClass(Text.class);
+    conf.setMapOutputValueClass(Text.class);
+
+    //设定分区类
+    conf.setPartitionerClass(MyPartitionerPar.class);
+
+    conf.setOutputKeyClass(Text.class);
+    conf.setOutputValueClass(Text.class);
+
+    //设定mapper和reducer类
+    conf.setMapperClass(MyMap.class);
+    conf.setReducerClass(MyReduce.class);
+
+    conf.setInputFormat(TextInputFormat.class);
+    conf.setOutputFormat(TextOutputFormat.class);
+
+    FileInputFormat.setInputPaths(conf, new Path(args[0]));
+    FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+
+    JobClient.runJob(conf);
+}
+</code></pre>
+
+<p>}</p>
+]]></content>
+  </entry>
+  
+</feed>

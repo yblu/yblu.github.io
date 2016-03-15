@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mapreduce | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/mapreduce/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MapReduce 的优化Tips]]></title>
+    <link href="http://yblu.github.io/blog/2015/05/20/MR-optimization/"/>
+    <updated>2015-05-20T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/05/20/MR-optimization</id>
+    <content type="html"><![CDATA[<p>最近在都做MapReduce，但是MapReduce没有想象中处理数据这么快，结果发现并不能盲目的使用MapReduce。MapReduce是可以许多机器同时计算，但是并行计算带来的性能提升是有限的，有事反而会因为使用MapReduce过于简单粗暴，不根据具体的业务场景做适当的优化，反而会使程序性能下降。下面以最近的一个任务的完成为线索，将最近学习到的优化经验总结一下。</p>
+
+<h2>任务场景</h2>
+
+<ul>
+<li>数据A：包含url、ip、cookie、id、pv等数据</li>
+<li>数据B：ip字典（ip到地区的id映射）</li>
+<li>要求：以site*ip为统计粒度，计算数据分布，并且需要在数据里拼接上id</li>
+<li>目的：分析不同地区是否方位不同站点的偏好，去掉无法查到地区ip的数据</li>
+</ul>
+
+
+<h3>Mapreduce程序设计</h3>
+
+<p>以url和ip为key，ip为partition，在reduce阶段进行数据合并</p>
+
+<ul>
+<li><p>Map1输出：<code>(key:&lt;ip1,url1&gt;,vaule:pv1)</code></p></li>
+<li><p>Map2输出：<code>(key:&lt;ip2,"", vaule:locationid)</code></p></li>
+<li><p>Reducer输出：<code>（ip, url, locationid, total_pv)</code></p></li>
+</ul>
+
+
+<h3>性能优化</h3>
+
+<ul>
+<li><p>在map阶段加上combiner，减少从map到reducer传输的数据量</p></li>
+<li><p>在map的task中开辟一块内存，构造一个cache，代替combiner的工作</p></li>
+<li><p>对ip数据进行采样，计算出合理的分桶方法，重写并设置partition</p>
+
+<ul>
+<li>从100条数据中抽取一天数据</li>
+<li>将ip转化为数字进行排序</li>
+<li>划分区间</li>
+</ul>
+</li>
+<li><p>如果ip字典很小，不采用reduce合并的方法，在map阶段，加载ip字典到内存中，直接查询。</p></li>
+<li><p>如果ip字典很大，但是很多ip在字典中查不到。仍采用reduce阶段合并，预先计算一个ip的bloomfilter，用于在map阶段过来数据。</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

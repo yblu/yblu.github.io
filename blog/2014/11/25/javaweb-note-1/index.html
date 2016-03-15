@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>JSP学习笔记一 - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="JSP学习">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2014/11/25/javaweb-note-1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">JSP学习笔记一</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-25T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h1>1. JSP简介</h1>
+
+<p>JSP是 Java ServerPages的缩写，是有SUN公司于1999年6月推出的技术，通过在HTML中插入脚本代码从而构成JSP页面。JSP是基于 Java Servlet 及整个 Java 体系的Web开发技术，可以利用这一技术来构建安全的，跨平台的动态Web站点。JSP目前在不断的优化。
+JSP具有以下主要特点</p>
+
+<ul>
+<li>程序逻辑和显示分离</li>
+<li>可重用组件</li>
+<li>使用标签化页面开发</li>
+<li>具有Java的特点</li>
+</ul>
+
+
+<h1>2. JSP运行机制</h1>
+
+<p>先看简单的JSP示例</p>
+
+<p>HelloWorld.jsp</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello JSP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;%
+    out.println("Hello JSP!");
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>在浏览器地址栏中输入HelloJSP.jsp，打开页面可以得到输出</p>
+
+<pre><code>Hello JSP
+</code></pre>
+
+<p>该示例代码中通过out.println()实现网页的输出是为了与转义之后的Servlet文件比较。</p>
+
+<p>运行完成该JSP页面后，打开Tomcat安装目录下的Work文件夹。在该目录中可以找到与该JSP文件相对应的Java文件，以及编译后的Class文件。下面勒出了部分Java代码。</p>
+
+<pre><code>out.write("&lt;html&gt;\r\n");
+out.write("&lt;head&gt;\r\n");
+out.write("&lt;title&gt;Hello JSP&lt;/title&gt;\r\n");
+out.write("&lt;/head&gt;\r\n");
+out.write("&lt;body&gt;\r\n");
+out.write("\t");
+out.println("Hello JSP!");
+out.write("\r\n");
+out.write("&lt;/body&gt;\r\n");
+out.write("&lt;/html&gt;\r\n");
+</code></pre>
+
+<p>使用I浏览器打开该JSP页面，选择查看页面源代码，代码如下所示</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello JSP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Hello JSP!
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>可以把JSP页面的执行分成两个阶段，一个是转译阶段，一个是请求阶段。</p>
+
+<ul>
+<li> 转译阶段：JSP页面转换成Servlet类。</li>
+<li> 请求阶段：Servlet类执行，将相应结果发送给客户端。</li>
+</ul>
+
+
+<p>下面来看JSP的执行流程示意图，如下图所示。
+<image></image>
+该执行流程解释如下：</p>
+
+<ol>
+<li>用户（客户机）请求相应的JSP页面。</li>
+<li>服务器找到相应的JSP页面。</li>
+<li>服务器将JSP转译成Servlet的源代码。</li>
+<li>服务器将Servlet源代码编译成class文件。</li>
+<li>服务器将class文件加载到内存并执行。</li>
+<li>服务器将class文件执行后生成的HTML代码发送给客户机，客户机浏览器根据相应的HTML代码进行显示。</li>
+</ol>
+
+
+<p>如果该JSP页面为第一次执行，那么会经过这两个阶段，而如果不是第一次执行，那么僵只会执行清酒阶段。这要是为什么第二次执行JSP页面时明显比第一次执行要快的原因。
+如果修改了JSP页面，那么服务器将发现该修改，并重新执行转译阶段和请求阶段。这也是为什么修改页面之后访问速度变慢的原因。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-11-25T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/jsp/'>jsp</a>, <a class='category' href='/blog/categories/learning/'>learning</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2014/11/25/javaweb-note-1/" data-via="" data-counturl="http://yblu.github.io/blog/2014/11/25/javaweb-note-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/11/13/first-post-ever/" title="Previous Post: 开篇">&laquo; 开篇</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/11/26/Python-resource/" title="Next Post: Python学习资源">Python学习资源 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

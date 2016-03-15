@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Base Programming | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/base-programming/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[++i 和 I++ 的效率对比]]></title>
+    <link href="http://yblu.github.io/blog/2015/05/13/++iandi++/"/>
+    <updated>2015-05-13T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/05/13/++iandi++</id>
+    <content type="html"><![CDATA[<p>这个问题需要分两种情况来解说：</p>
+
+<p>1、当变量i的数据类型是c++语言默认提供的类型的话，他们的效率是一样的。</p>
+
+<p>int a,i=0;     a=++i;汇编代码如下：</p>
+
+<pre><code> int a,i=0;
+01221A4E  mov         dword ptr [i],0 
+ a=++i;
+01221A55  mov         eax,dword ptr [i] 
+01221A58  add         eax,1 
+01221A5B  mov         dword ptr [i],eax 
+01221A5E  mov         ecx,dword ptr [i] 
+01221A61  mov         dword ptr [a],ecx
+</code></pre>
+
+<p>int a,i=0;     a=i++;汇编代码如下：</p>
+
+<pre><code>  int a,i=0;
+009E1A4E  mov         dword ptr [i],0 
+ a=i++;
+009E1A55  mov         eax,dword ptr [i] 
+009E1A58  mov         dword ptr [a],eax 
+009E1A5B  mov         ecx,dword ptr [i] 
+009E1A5E  add         ecx,1 
+009E1A61  mov         dword ptr [i],ecx
+</code></pre>
+
+<p>从汇编代码可以看出，他们的执行行数是一样的！</p>
+
+<p> 2、我们自定的数据类型，++i效率高于i++，通过运算符重载来给大家说明这一点。</p>
+
+<pre><code>Operator Operator::operator++()
+{
+   ++value;    //内部成员变量
+   return *this;
+}
+
+Operator Operator::operator++(int)
+{
+ Operator temp;
+ temp.value=value;
+ value++;
+ return temp;
+}
+</code></pre>
+
+<p>后++必须要有一个临时对象才可以</p>
+]]></content>
+  </entry>
+  
+</feed>

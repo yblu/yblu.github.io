@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Protocol Buffers Overview - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="protocol overveiew">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2015/05/07/PB-Overview/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Protocol Buffers Overview</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-07T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Protocol Buffers(PB)简介</h2>
+
+<p>protocol buffers是google提供的一种将结构化数据进行序列化和反序列化的方法，其优点是语言中立，平台中立，可扩展性好，目前在google内部大量用于数据存储，通讯协议等方面。PB在功能上类似XML，但是序列化后的数据更小，解析更快，使用上更简单。用户只要按照proto语法在.proto文件中定义好数据的结构，就可以使用PB提供的工具（protoc）自动生成处理数据的代码，使用这些代码就能在程序中方便的通过各种数据流读写数据。PB目前支持Java, C++和Python3种语言。另外，PB还提供了很好的向后兼容，即旧版本的程序可以正常处理新版本的数据，新版本的程序也能正常处理旧版本的数据。</p>
+
+<blockquote><p>Protocol buffers are Google’s language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler. You define how you want your data to be structured once, then you can use special generated source code to easily write and read your structured data to and from a variety of data streams and using a variety of languages – Java, C++, or Python. You can even update your data structure without breaking deployed programs that are compiled against the “old” format.（摘自<a href="https://developers.google.com/protocol-buffers/docs/overview?hl=zh-cn">PB官网</a>）</p></blockquote>
+
+<h2>如何使用Protocol Buffers</h2>
+
+<ol>
+<li><p>定义一个.proto文件</p>
+
+<p> 在addressbook.proto文件里定义通讯簿消息的格式，一个通讯簿（AddressBook）由可重复的Person组成，一个person由两个必需存在的name和id字段，以及一个可选的email字段，和可重复的PhoneNumber构成。PhoneNumber由number和type组成。</p>
+
+<pre><code> message Person {
+     required string name = 1;
+     required int32 id = 2;
+     optional string email = 3;
+
+     enum PhoneType {
+         MOBILE = 0;
+         HOME = 1;
+         WORK = 2;
+     }
+
+     message PhoneNumber {
+         required string number = 1;
+         optional PhoneType type = 2 [default = HOME];
+     }
+
+     repeated PhoneNumber phone = 4;
+ }
+</code></pre></li>
+<li><p>使用protocol编译器</p>
+
+<p> 使用PB使用的工具Protocol根据.proto文件自动生成处理消息的代码</p>
+
+<pre><code> protoc -I=$SRC_DIR --cpp_out=$DST_DIR $SRC_DIR/addressbook.proto
+</code></pre>
+
+ 在$DST_DIR里生成了下面两个文件：
+
+<blockquote><p>addressbook.pb.h
+<br>
+addressbook.pb.cc</p></blockquote></li>
+<li><p>使用PB的API来写入和读取messages</p>
+
+<p> 程序使用生成的代码来读写（序列化，反序列化）和操作（get，set）消。</p>
+
+<p> 写的代码：</p>
+
+<pre><code> Person person;
+ person.set_name("John Doe");
+ person.set_id(1234);
+ person.set_email("jdoe@example.com");
+ fstream output("myfile", ios::out | ios::binary);
+ person.SerializeToOstream(&amp;output);
+</code></pre>
+
+<p> 读的代码：</p>
+
+<pre><code> fstream input("myfile", ios::in | ios::binary);
+ Person person;
+ person.ParseFromIstream(&amp;input);
+ cout &lt;&lt; "Name: " &lt;&lt; person.name() &lt;&lt; endl;
+ cout &lt;&lt; "E-mail: " &lt;&lt; person.email() &lt;&lt; endl;
+</code></pre></li>
+</ol>
+
+
+<h2>why not just use XML</h2>
+
+<p>相比XML在序列化结构语言上protocol buffers有以下特点：</p>
+
+<ul>
+<li>更简单</li>
+<li>体积上小3~10倍</li>
+<li>速度上快20~100倍</li>
+<li>定义更清晰</li>
+<li>更容易通过程序产生数据接入类</li>
+</ul>
+
+
+<p>例如，你想简历一个模型person，它有name和email。在XML中，你需要这样做：</p>
+
+<pre><code>&lt;person&gt;
+&lt;name&gt;John Doe&lt;/name&gt;
+&lt;email&gt;jdoe@example.com&lt;/email&gt;
+&lt;/person&gt;
+</code></pre>
+
+<p>然而相应的protocol buffer的message是这样的：</p>
+
+<pre><code># Textual representation of a protocol buffer.
+# This is *not* the binary format used on the wire.
+person {
+    name: "John Doe"
+    email: "jdoe@example.com"
+}
+</code></pre>
+
+<p>这条message被编码成protocol buffer 二进制格式（上述文本格式只是便于人类可读性表达，更利于调试和修改），它可能只是28 byte长，只需要100~200ns来解析。而XML的版本如果扣除空白部分可能需要69 byte，将需要5,000~10,000ns来解析。
+另外，操作一个protocol buffer更容易：</p>
+
+<pre><code>cout &lt;&lt; "Name: " &lt;&lt; person.name() &lt;&lt; endl;
+cout &lt;&lt; "E-mail: " &lt;&lt; person.email() &lt;&lt; endl;
+</code></pre>
+
+<p>然而XML需要这样解析：</p>
+
+<pre><code>cout &lt;&lt; "Name: "
+     &lt;&lt; person.getElementsByTagName("name")-&gt;item(0)-&gt;innerText()
+     &lt;&lt; endl;
+cout &lt;&lt; "E-mail: "
+     &lt;&lt; person.getElementsByTagName("email")-&gt;item(0)-&gt;innerText()
+     &lt;&lt; endl;
+</code></pre>
+
+<p>不过，protocol buffer也不是总比XML是个解决方案，例如protocol buffer不能很好的对一个基于文档标记的文本进行建模（如 HTML），因为你不能交错文本结构。另外XML可读性和可编辑性更强。protocol buffer至少在他们的原始格式是并不是。XML同时也是可扩展，自描述的。Protocol buffer只有提供了message描述文件.proto 文件才有意义。</p>
+
+<h2>A bit of history</h2>
+
+<p>Protocol Buffer一开始在google是为了处理一个索引服务器请求/响应协议。在Protocol Buffer之前，请求和响应一个用来请求/响应的封装或解封的格式，它支持大量版本的协议。它是通过非常丑陋的代码来解决的，像下面这样：</p>
+
+<pre><code>if (version == 3) {
+...
+} else if (version &gt; 4) {
+    if (version == 5) {
+    ...
+    }
+...
+}
+</code></pre>
+
+<p>显然，格式化协议使得采用新的协议的版本上线更复杂，因为开发者必须确保请求发起服务器和实际处理这些请求的服务器中间经过的所有服务器在他们切换到开始使用新协议之前能够理解新协议。
+Protocol Buffer就是来解决这样许多这样的问题：</p>
+
+<ul>
+<li>新的域能够很容易的引入。中间服务器不需要注入数据就能简单地解析他，并且不需要了解所有的域就可以传输数据。</li>
+<li>格式要能够自描述，能够处理各种类型的编程语言（C++,java,etc）</li>
+</ul>
+
+
+<p>然而，用户仍然要手写他们自己的解析代码。
+因为系统升级，有大量的特性和用途：</p>
+
+<ul>
+<li>自动化产生序列化和反序列化代码，避免手动解析。</li>
+<li>另外对于短生命周期的RPC请求，人们开始使用protocol buffers 作为一种手动的自描述格式来短期存储数据（例如在，Bigtable中）</li>
+<li>服务器RPC 接口开始成为protocl文件的一部分，protocol编译器产生存根类，用户可以重写服务器端接口实际的操作。</li>
+</ul>
+
+
+<p>protocol buffer现在是Google数据的通用语，在google代码树中通过12,183个 .proto文件定义了48,162种不同的message类型。他们被应用在RPC系统和各种存储系统的各种短期存储中。</p>
+
+<h2>proto3</h2>
+
+<p>最新的version 3 <a href="https://github.com/google/protobuf/releases">发布页</a>  介绍了一个 新语言版本——Protocol Buffers language version 3（aka proto3），同时现有版本的语言（aka proto2）增加了很多新特性。Proto3简化了protocol buffer语言，同时简化了使用，使得可以应用在更广泛的编程语言:现有的支持Java，C++，Python，JavaNano和Ruby，和一些限制。另外最新版的proto3通过Go protoc插件支持Go。更多的语言支持正在进行中。
+只在以下情况建议使用proto3:
+* 如果你想在只有新版本支持的语言中使用protocol buffers。
+* 如果你想尝试新的开源RPC操作gRPC，我们建议对所有的新gRPC服务器和客服端中使用proto3，因为他避免了兼容性问题。</p>
+
+<p>注意到这两个版本的API不是完全兼容。为了避免给现有用户带来不便，我们需要在新的protocol buffers发布中继续支持已有的语言版本。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-07T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/pb/'>pb</a>, <a class='category' href='/blog/categories/rpc/'>rpc</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2015/05/07/PB-Overview/" data-via="" data-counturl="http://yblu.github.io/blog/2015/05/07/PB-Overview/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/04/07/linux-stdio/" title="Previous Post: linux shell的标准输入、输出和错误">&laquo; linux shell的标准输入、输出和错误</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/05/13/++iandi++/" title="Next Post: ++i 和 i++ 的效率对比">++i 和 i++ 的效率对比 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

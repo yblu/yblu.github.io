@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Learning | luyunbo's Blog]]></title>
+  <link href="http://yblu.github.io/blog/categories/learning/atom.xml" rel="self"/>
+  <link href="http://yblu.github.io/"/>
+  <updated>2016-03-15T12:03:00+08:00</updated>
+  <id>http://yblu.github.io/</id>
+  <author>
+    <name><![CDATA[Lu Yunbo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[php中global和$GLOBALS[]的用法、解释、区别]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/20/php-global.vs$GLOBALS%5B%5D/"/>
+    <updated>2015-03-20T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/20/php-global.vs$GLOBALS[]</id>
+    <content type="html"><![CDATA[<p>php语法中，很多人都认为global和$GLOBALS[]只是写法上面的差别，其实不然
+根据官方的解释是
+1.$GLOBALS[‘var’]是外部的全局变量本身
+2.global $var是外部$var的同名引用或者指针。</p>
+
+<p>举例说明一下：</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+$var2 = 2;
+function test(){
+$GLOBALS[‘var2′] = &amp;$GLOBALS[‘var1′];
+}
+test();
+echo $var2;
+?&gt;
+</code></pre>
+
+<p>正常打印结果为1</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+$var2 = 2;
+function test(){
+global $var1,$var2;
+$var2 = &amp;$var1;
+}
+test();
+echo $var2;
+?&gt;
+</code></pre>
+
+<p>意外打印结果为2</p>
+
+<p>为什么会打印结果为2呢？其实就是因为$var1的引用指向了$var2的引用地址。导致实质的值没有改变。
+我们再来看一个例子吧。</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+function test(){
+unset($GLOBALS[‘var1′]);
+}
+test();
+echo $var1;
+?&gt;
+</code></pre>
+
+<p>因为$var1被删除了，所以什么东西都没有打印</p>
+
+<pre><code>&lt;?php
+$var1 = 1;
+function test(){
+global $var1;
+unset($var1);
+}
+test();
+echo $var1;
+?&gt;
+</code></pre>
+
+<p>意外的打印了1。证明删除的只是别名|引用，起本身的值没有受到任何的改变
+明白了吧？
+也就是说global $var其实就是$var = &amp;$GLOBALS[‘var’]。调用外部变量的一个别名而已</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[大数据工程人员知识图谱]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/20/BigData-SkillMap/"/>
+    <updated>2015-03-20T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/20/BigData-SkillMap</id>
+    <content type="html"><![CDATA[<p>大数据相关工程人员需要掌握的技术相关知识点。主要涉及到数据库、数据仓库、编程、分布式系统、Hadoop生态系统相关、数据挖掘和机器学习相关的基础知识点</p>
+
+<table>
+    <tr>
+        <td valign="top" width="62"><span style="color: #000000;">Topic</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Content</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Key points</span></td>
+        <td valign="top" width="80"><span style="color: #000000;">Reference</span></td>
+        </tr>
+    <tr>
+        <td rowspan="4" valign="top" width="62"><span style="color: #000000;">DB/OLTP &amp; DW/OLAP</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Database/OLTP basic</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">The relational model, SQL, index/secondary index, inner join/left join/right join/full join, transaction/ACID</span></td>
+        <td rowspan="4" valign="top" width="80"><span style="color: #000000;">Ramakrishnan, Raghu, and Johannes Gehrke. Database Management Systems.</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Database internal &amp; implementation</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Architecture, memory management, storage/B+ tree, query parse /optimization/execution, hash join/sort-merge join</span></td>
+        </tr>
+        <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Distributed and parallel database</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Sharding, database proxy</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Data warehouse/OLAP</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Materialized views, ETL, column-oriented storage, reporting, BI tools</span></td>
+    </tr>
+    <tr>
+        <td rowspan="5" valign="top" width="62"><span style="color: #000000;">Basic programming</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Programming language</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Java, Python (Pandas/NumPy/SciPy/scikit-learn), SQL, Functional programming, R/SAS/SPSS</span></td>
+        <td rowspan="5" valign="top" width="80"><span style="color: #000000;">Wes McKinney. Python for Data Analysis: Agile Tools for Real World Data.</span>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">OS</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Linux</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">DB &amp; DW system</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">MySQL/ Hive/Impala</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Text format and process</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">JSON/XML, regex</span></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Tool</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Git/SVN, Maven</span></td>
+    </tr>
+    <tr>
+        <td rowspan="10" valign="top" width="62"><span style="color: #000000;">Distributed system &amp; Hadoop ecosystem &amp; NoSQL</span></td>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Distributed system principal theory</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">CAP theorem, RPC (Protocol Buffer/Thrift/Avro), Zookeeper, Metadata management (HCatalog)</span></td>
+        <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+        <td colspan="2" valign="top" width="113"><span style="color: #000000;">Distributed storage &amp; computing framework &amp; resource management</span></td>
+        <td valign="top" width="149"><span style="color: #000000;">Hadoop/HDFS/MapReduce/YARN</span></td>
+        <td valign="top" width="80"><span style="color: #000000;">Tom White. Hadoop : The Definitive Guide.</span><p></p>
+        <p><span style="color: #000000;">Donald Miner, Adam Shook. MapReduce Design Patterns : Building Effective Algorithm and Analytics for Hadoop and Other Systems.</span></p></td>
+    </tr>
+    <tr>
+    <td rowspan="2" valign="top" width="50"><span style="color: #000000;">SQL on Hadoop</span></td>
+    <td valign="top" width="64"><span style="color: #000000;">Data (log) acquisition/integration/fusion, normalization, feature extraction</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Sqoop, Flume/Scribe/Chukwa,</span><span style="color: #000000;">SerDe</span></td>
+    <td rowspan="2" valign="top" width="80"><span style="color: #000000;">Edward Capriolo, Dean Wampler, Jason Rutherglen. Programming Hive.</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Query &amp; In-database analytics</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Hive, Impala, UDF/UDAF</span></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Large scale data mining &amp; machine learning framework</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Spark/MLbase, MR/Mahout</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Streaming process</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Storm</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td rowspan="4" colspan="2" valign="top" width="113"><span style="color: #000000;">NoSQL</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">HBase/Cassandra (column oriented database)</span></td>
+    <td rowspan="4" valign="top" width="80"><span style="color: #000000;">Lars George. HBase: The Definitive Guide.</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="149"><span style="color: #000000;">Mongodb (Document database)</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="149"><span style="color: #000000;">Neo4j (graph database)</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="149"><span style="color: #000000;">Redis (cache)</span></td>
+    </tr>
+    <tr>
+    <td rowspan="10" valign="top" width="62"><span style="color: #000000;">Data mining &amp; Machine learning</span></td>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">DM &amp; ML basic</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Numerical/Categorical variable, training/test data, over fitting, bias/variance, precision/recall, tagging</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Statistic</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Data exploration (mean, median/range/standard deviation/variance/histogram), Continues distributions (Normal/ Poisson/Gaussian), covariance, correlation coefficient, distance and similarity computing, Bayes theorem, Monte Carlo Method, Hypothesis testing</span></td>
+    <td valign="top" width="80"></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Supervised learning</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Classifier, boosting, prediction, regression analysis</span></td>
+    <td rowspan="7" valign="top" width="80">
+    <p align="left"><span style="color: #000000;">Han, Jiawei,Micheline Kamber, and Jian Pei.&nbsp;Data mining: concepts and techniques.</span></p>
+    <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Unsupervised learning</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Cluster, deep learning</span></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Collaborative filtering</span></td>
+    <td valign="top" width="149">
+    <p align="left"><span style="color: #000000;">Item based CF, user based CF</span></p>
+    <p>&nbsp;</p></td>
+    </tr>
+    <tr>
+    <td rowspan="4" valign="top" width="50"><span style="color: #000000;">Algorithm</span></td>
+    <td valign="top" width="64"><span style="color: #000000;">Classifier</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Decision trees, KNN (K-Nearest neighbor), SVM (support vector machines), SVD (Singular Value Decomposition), naïve Bayes classifiers, neural networks,</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Regression</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Linear regression, logistic regression, ranking, perception</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Cluster</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Hierarchical cluster, K-means cluster, Spectral Cluster</span></td>
+    </tr>
+    <tr>
+    <td valign="top" width="64"><span style="color: #000000;">Dimensionality reduction</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">PCA (Principal Component Analysis), LDA (Linear discriminant Analysis), MDS (Multidimensional scaling)</span></td>
+    </tr>
+    <tr>
+    <td colspan="2" valign="top" width="113"><span style="color: #000000;">Text mining &amp; Information retrieval</span></td>
+    <td valign="top" width="149"><span style="color: #000000;">Corpus, term document matrix, term frequency &amp; weight, association rules, market based analysis, vocabulary mapping, sentiment analysis, tagging, PageRank, VSM (Vector Space Model), inverted index</span></td>
+    <td valign="top" width="80"><span style="color: #000000;">Jimmy Lin and Chris Dyer. Data-Intensive Text Processing with MapReduce.</span></td>
+    </tr>
+</table>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[assertThat的用法]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/13/Java-assertThat/"/>
+    <updated>2015-03-13T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/13/Java-assertThat</id>
+    <content type="html"><![CDATA[<h3>一般匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedNumber, allOf( greaterThan(8), lessThan(16) ) );</code></p>
+
+<p> 注释： allOf匹配符表明如果接下来的所有条件必须都成立测试才通过，相当于“与”（&amp;&amp;）</p></li>
+<li><p><code>assertThat( testedNumber, anyOf( greaterThan(16), lessThan(8) ) );</code></p>
+
+<p> 注释：anyOf匹配符表明如果接下来的所有条件只要有一个成立则测试通过，相当于“或”（||）</p></li>
+<li><p><code>assertThat( testedNumber, anything() );</code></p>
+
+<p> 注释：anything匹配符表明无论什么条件，永远为true</p></li>
+<li><p><code>assertThat( testedString, is( "developerWorks" ) );</code></p>
+
+<p> 注释： is匹配符表明如果前面待测的object等于后面给出的object，则测试通过</p></li>
+<li><p><code>assertThat( testedString, not( "developerWorks" ) );</code></p>
+
+<p> 注释：not匹配符和is匹配符正好相反，表明如果前面待测的object不等于后面给出的object，则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>字符串相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedString, containsString( "developerWorks" ) );</code></p>
+
+<p>注释：containsString匹配符表明如果测试的字符串testedString包含子字符串"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, endsWith( "developerWorks" ) )</code>;</p>
+
+<p> 注释：endsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"结尾则测试通过</p></li>
+<li><p><code>assertThat( testedString, startsWith( "developerWorks" ) );</code></p>
+
+<p> 注释：startsWith匹配符表明如果测试的字符串testedString以子字符串"developerWorks"开始则测试通过</p></li>
+<li><p><code>assertThat( testedValue, equalTo( expectedValue ) );</code></p>
+
+<p> 注释： equalTo匹配符表明如果测试的testedValue等于expectedValue则测试通过，equalTo可以测试数值之间，字符串之间和对象之间是否相等，相当于Object的equals方法</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringCase( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringCase匹配符表明如果测试的字符串testedString在忽略大小写的情况下等于"developerWorks"则测试通过</p></li>
+<li><p><code>assertThat( testedString, equalToIgnoringWhiteSpace( "developerWorks" ) );</code></p>
+
+<p> 注释：equalToIgnoringWhiteSpace匹配符表明如果测试的字符串testedString在忽略头尾的任意个空格的情况下等于"developerWorks"则测试通过，注意：字符串中的空格不能被忽略</p></li>
+</ol>
+
+
+<hr />
+
+<h3>数值相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( testedDouble, closeTo( 20.0, 0.5 ) );</code></p>
+
+<p> 注释：closeTo匹配符表明如果所测试的浮点型数testedDouble在20.0±0.5范围之内则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThan(16.0) );</code></p>
+
+<p> 注释：greaterThan匹配符表明如果所测试的数值testedNumber大于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThan (16.0) );</code></p>
+
+<p> 注释：lessThan匹配符表明如果所测试的数值testedNumber小于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, greaterThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释： greaterThanOrEqualTo匹配符表明如果所测试的数值testedNumber大于等于16.0则测试通过</p></li>
+<li><p><code>assertThat( testedNumber, lessThanOrEqualTo (16.0) );</code></p>
+
+<p> 注释：lessThanOrEqualTo匹配符表明如果所测试的数值testedNumber小于等于16.0则测试通过</p></li>
+</ol>
+
+
+<hr />
+
+<h3>collection相关匹配符</h3>
+
+<ol>
+<li><p><code>assertThat( mapObject, hasEntry( "key", "value" ) );</code></p>
+
+<p> 注释：hasEntry匹配符表明如果测试的Map对象mapObject含有一个键值为"key"对应元素值为"value"的Entry项则测试通过</p></li>
+<li><p><code>assertThat( iterableObject, hasItem ( "element" ) );</code></p>
+
+<p> 注释：hasItem匹配符表明如果测试的迭代对象iterableObject含有元素“element”项则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasKey ( "key" ) );</code></p>
+
+<p> 注释： hasKey匹配符表明如果测试的Map对象mapObject含有键值“key”则测试通过</p></li>
+<li><p><code>assertThat( mapObject, hasValue ( "key" ) );</code></p>
+
+<p> 注释：hasValue匹配符表明如果测试的Map对象mapObject含有元素值“value”则测试通过</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Java 中 HashMap 的初始化]]></title>
+    <link href="http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation/"/>
+    <updated>2015-03-07T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2015/03/07/Java-HashMapInitiation</id>
+    <content type="html"><![CDATA[<h3>1、普通写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+map.put("Name", "June");  
+map.put("QQ", "4889983");
+</code></pre>
+
+<h3>2、文艺写法</h3>
+
+<pre><code>HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;() {
+    {
+    put("Name", "June");  
+    put("QQ", "4889983");  
+    }
+};
+</code></pre>
+
+<p>第一层括弧实际是定义了一个匿名内部类 (Anonymous Inner Class)，第二层括弧实际上是一个实例初始化块 (instance initializer block)，这个块在内部匿名类构造时被执行。这个块之所以被叫做“实例初始化块”是因为它们被定义在了一个类的实例范围内。</p>
+
+<p>类似都可以在ArrayList、set上推广：</p>
+
+<pre><code>List&lt;String&gt; names = new ArrayList&lt;String&gt;() {
+    {
+        for (int i = 0; i &lt; 10; i++) {
+            add("A" + i);
+        }
+    }
+};
+</code></pre>
+
+<h3>3、文艺写法存在的问题</h3>
+
+<p>如果这个对象要串行化，可能会导致串行化失败。</p>
+
+<ol>
+<li><p>此种方式是匿名内部类的声明方式，所以引用中持有着外部类的引用。所以当时串行化这个集合时外           部类也会被不知不觉的串行化，当外部类没有实现serialize接口时，就会报错。</p></li>
+<li><p>上例中，其实是声明了一个继承自HashMap的子类。然而有些串行化方法，例如要通过Gson串行化为         json，或者要串行化为xml时，类库中提供的方式，是无法串行化Hashset或者HashMap的子类的，从而导致串行化失败。解决办法：重新初始化为一个HashMap对象：</p>
+
+<p> <code>new HashMap(map);</code></p>
+
+<p> 这样就可以正常初始化了。</p></li>
+<li>效率比普通写法低。</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hadoop中Partition解析]]></title>
+    <link href="http://yblu.github.io/blog/2014/12/25/Hadoop-Partition/"/>
+    <updated>2014-12-25T00:00:00+08:00</updated>
+    <id>http://yblu.github.io/blog/2014/12/25/Hadoop-Partition</id>
+    <content type="html"><![CDATA[<h3>1.解析Partition</h3>
+
+<p>Map的结果，会通过partition分发到Reducer上，Reducer做完Reduce操作后，通过OutputFormat，进行输出，下面我们就来分析参与这个过程的类。
+Mapper的结果，可能送到Combiner做合并，Combiner在系统中并没有自己的基类，而是用Reducer作为Combiner的基类，他们对外的功能是一样的，
+只是使用的位置和使用时的上下文不太一样而已。Mapper最终处理的键值对&lt;key, value>，是需要送到Reducer去合并的，合并的时候，有相同key的
+键/值对会送到同一个Reducer那。哪个key到哪个Reducer的分配过程，是由Partitioner规定的。它只有一个方法,</p>
+
+<pre><code>getPartition(Text key, Text value, int numPartitions) 
+</code></pre>
+
+<p>输入时Map的结果对&lt;key, value>和Reducer的数目，输出则是分配的Reducer（整数编号）。就是指定Mapper输出的键值到哪一个reducer上去。系统缺省的Partition是HashPartitoner,它已key的Hash值对Reducer的数目取模，得到对应的Reducer。这样保证如果有相对的key值，肯定被分配到同一个reducer上。如果有N个reducer，编号就为0,1,2,3……（N-1)。</p>
+
+<p>Reducer是所有用户定制Reducer类的基类，和Mapper类似，它也有setup，reducer，cleanup和run方法，其中setup和cleanup含义和和Mapper相同，reduce是真正合并到Mapper结果的地方，它的输入是key和这个key对用的所有value的一个迭代器，同时还包括Reducer的上下文。系统中定义了两个非常简单的Reducer，IntSumReducer和LongSumReducer，分别用于对整形/长整形的value求和。</p>
+
+<p>Reduce的结果，通过Reducer.Context的方法collect输出到文件中，和输入类似，Hadoop引入了OutputFormat。OutputFormat依赖两个辅助接口：RecordWriter和OutputCommitter，来处理输出。RecordWriter提供了write方法，用于输出&lt;key, value>和close方法，用于关闭对应的输出。OutputCommitter提供了一系列方法，用户通过实现这些方法，可以定制OutputFormat生存期某些阶段需要的特殊操作。我们在TaskInputOutputContext中讨论过这些方法（明显，TaskInputOutputContext是OutputFormat和Reducer间的桥梁）。OutputFormat和RecordWriter分别对应着InputFormat和RecordReader，系统提供了空输出NullOutputFormat（什么结果都不输出，NullOutputFormat.RecordWriter只是示例，系统中没有定义），LazyOutputFormat（没在类图中出现，不分析），FilterOutputFormat（不分析）和基于文件FileOutputFormat的SequenceFileOutputFormat和TextOutputFormat输出。</p>
+
+<p>基于文件的输出FileOutputFormat利用了一些配置项配合工作，包括:</p>
+
+<ul>
+<li>mapred.output.compress：是否压缩；</li>
+<li>mapred.output.compression.codec：压缩方法；</li>
+<li>mapred.output.dir：输出路径；</li>
+<li>mapred.work.output.dir：输出工作路径。</li>
+<li>FileOutputFormat还依赖于FileOutputCommitter，通过FileOutputCommitter提供一些和Job，Task相关的临时文件管理功能。如FileOutputCommitter的setupJob，会在输出路径下创建一个名为_temporary的临时目录，cleanupJob则会删除这个目录。</li>
+<li>SequenceFileOutputFormat输出和TextOutputFormat输出分别对应输入的SequenceFileInputFormat和TextInputFormat。</li>
+</ul>
+
+
+<h3>2.代码实例</h3>
+
+<pre><code>package org.apache.hadoop.examples;
+
+import java.io.IOException;
+import java.util.*;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapred.*;
+import org.apache.hadoop.util.*;
+
+/**
+ * 输入文本，以tab间隔
+ * kaka    1       28
+ * hua     0       26
+ * chao    1
+ * tao     1       22
+ * mao     0       29      22
+ * */
+
+//Partitioner函数的使用
+
+public class MyPartitioner {
+    // Map函数
+    public static class MyMap extends MapReduceBase implements
+            Mapper&lt;LongWritable, Text, Text, Text&gt; {
+        public void map(LongWritable key, Text value,
+                OutputCollector&lt;Text, Text&gt; output, Reporter reporter)
+                throws IOException {
+            String[] arr_value = value.toString().split("\t");
+            //测试输出
+//          for(int i=0;i&lt;arr_value.length;i++)
+//          {
+//              System.out.print(arr_value[i]+"\t");
+//          }
+//          System.out.print(arr_value.length);
+//          System.out.println();       
+            Text word1 = new Text();
+            Text word2 = new Text();
+            if (arr_value.length &gt; 3) {
+                word1.set("long");
+                word2.set(value);
+            } else if (arr_value.length &lt; 3) {
+                word1.set("short");
+                word2.set(value);
+            } else {
+                word1.set("right");
+                word2.set(value);
+            }
+            output.collect(word1, word2);
+        }
+    }
+
+public static class MyReduce extends MapReduceBase implements
+        Reducer&lt;Text, Text, Text, Text&gt; {
+    public void reduce(Text key, Iterator&lt;Text&gt; values,
+            OutputCollector&lt;Text, Text&gt; output, Reporter reporter)
+            throws IOException {
+        int sum = 0;
+        System.out.println(key);
+        while (values.hasNext()) {
+            output.collect(key, new Text(values.next().getBytes()));    
+        }
+    }
+}
+
+// 接口Partitioner继承JobConfigurable，所以这里有两个override方法
+public static class MyPartitionerPar implements Partitioner&lt;Text, Text&gt; {
+    /**
+     * getPartition()方法的
+     * 输入参数：键/值对&lt;key,value&gt;与reducer数量numPartitions
+     * 输出参数：分配的Reducer编号，这里是result
+     * */
+    @Override
+    public int getPartition(Text key, Text value, int numPartitions) {
+        // TODO Auto-generated method stub
+        int result = 0;
+        System.out.println("numPartitions--" + numPartitions);
+        if (key.toString().equals("long")) {
+            result = 0 % numPartitions;
+        } else if (key.toString().equals("short")) {
+            result = 1 % numPartitions;
+        } else if (key.toString().equals("right")) {
+            result = 2 % numPartitions;
+        }
+        System.out.println("result--" + result);
+        return result;
+    }
+
+    @Override
+    public void configure(JobConf arg0) 
+    {
+        // TODO Auto-generated method stub
+    }
+}
+
+//输入参数：/home/hadoop/input/PartitionerExample /home/hadoop/output/Partitioner
+public static void main(String[] args) throws Exception {
+    JobConf conf = new JobConf(MyPartitioner.class);
+    conf.setJobName("MyPartitioner");
+
+    //控制reducer数量，因为要分3个区，所以这里设定了3个reducer
+    conf.setNumReduceTasks(3);
+
+    conf.setMapOutputKeyClass(Text.class);
+    conf.setMapOutputValueClass(Text.class);
+
+    //设定分区类
+    conf.setPartitionerClass(MyPartitionerPar.class);
+
+    conf.setOutputKeyClass(Text.class);
+    conf.setOutputValueClass(Text.class);
+
+    //设定mapper和reducer类
+    conf.setMapperClass(MyMap.class);
+    conf.setReducerClass(MyReduce.class);
+
+    conf.setInputFormat(TextInputFormat.class);
+    conf.setOutputFormat(TextOutputFormat.class);
+
+    FileInputFormat.setInputPaths(conf, new Path(args[0]));
+    FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+
+    JobClient.runJob(conf);
+}
+</code></pre>
+
+<p>}</p>
+]]></content>
+  </entry>
+  
+</feed>

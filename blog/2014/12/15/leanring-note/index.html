@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>面向对象的编程语言的特征 - luyunbo's Blog</title>
+  <meta name="author" content="Lu Yunbo">
+
+  
+  <meta name="description" content="JSP学习">
+  <meta name="keywords" content="工作">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yblu.github.io/blog/2014/12/15/leanring-note/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="luyunbo's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">luyunbo's Blog</a></h1>
+  
+    <h2>going to the sea of stars.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="yblu.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">面向对象的编程语言的特征</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-15T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>有以下有4个主要特征</p>
+
+<h4>封装</h4>
+
+<p>封装是保证软件部件具有优良的模块性的基础，封装的目标就是要实现软件部件的“高内聚、低耦合”，防止程序相互依赖性而带来的变动影响。在面向对象的编程语言中，对象是封装
+的最基本单位，面向对象的封装比传统语言的封装更为清晰、更为有力。面向对象的封装就
+是把描述一个对象的属性和行为的代码封装在一个“模块”中，也就是一个类中，属性用变量
+定义，行为用方法进行定义，方法可以直接访问同一个对象中的属性。通常情况下，只要记
+住让变量和访问这个变量的方法放在一起，将一个类中的成员变量全部定义成私有的，只
+有这个类自己的方法才可以访问到这些成员变量，这就基本上实现对象的封装，就很容易
+找出要分配到这个类上的方法了，就基本上算是会面向对象的编程了。把握一个原则：把
+对同一事物进行操作的方法和相关的方法放在同一个类中，把方法和它操作的数据放在同
+一个类中。</p>
+
+<p>例如，人要在黑板上画圆，这一共涉及三个对象：人、黑板、圆，画圆的方法要分配给哪个
+对象呢？由于画圆需要使用到圆心和半径，圆心和半径显然是圆的属性，如果将它们在类中
+定义成了私有的成员变量，那么，画圆的方法必须分配给圆，它才能访问到圆心和半径这两
+个属性，人以后只是调用圆的画圆方法、表示给圆发给消息而已，画圆这个方法不应该分配
+在人这个对象上，这就是面向对象的封装性，即将对象封装成一个高度自治和相对封闭的
+个体，对象状态（属性）由这个对象自己的行为（方法）来读取和改变。一个更便于理解
+的例子就是，司机将火车刹住了，刹车的动作是分配给司机，还是分配给火车，显然，应该
+分配给火车，因为司机自身是不可能有那么大的力气将一个火车给停下来的，只有火车自己
+才能完成这一动作，火车需要调用内部的离合器和刹车片等多个器件协作才能完成刹车这个
+动作，司机刹车的过程只是给火车发了一个消息，通知火车要执行刹车动作而已。</p>
+
+<h4>抽象</h4>
+
+<p>抽象就是找出一些事物的相似和共性之处，然后将这些事物归为一个类，这个类只考虑这些
+事物的相似和共性之处，并且会忽略与当前主题和目标无关的那些方面，将注意力集中在与
+当前目标有关的方面。例如，看到一只蚂蚁和大象，你能够想象出它们的相同之处，那就是
+抽象。抽象包括行为抽象和状态抽象两个方面。例如，定义一个Person类，如下：</p>
+
+<pre><code>classPerson{
+    string name;
+    int age;
+</code></pre>
+
+<p>人本来是很复杂的事物，有很多方面，但因为当前系统只需要了解人的姓名和年龄，所以上
+面定义的类中只包含姓名和年龄这两个属性，这就是一种抽像，使用抽象可以避免考虑一些
+与目标无关的细节。我对抽象的理解就是不要用显微镜去看一个事物的所有方面，这样涉及
+的内容就太多了，而是要善于划分问题的边界，当前系统需要什么，就只考虑什么。</p>
+
+<h4>继承</h4>
+
+<p>在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在
+的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适
+合特殊的需要，这就是继承。继承是子类自动共享父类数据和方法的机制，这是类之间的一
+种关系，提高了软件的可重用性和可扩展性。</p>
+
+<h4>多态</h4>
+
+<p>多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编
+程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，
+该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。
+因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到
+各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以
+改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。多态性
+增强了软件的灵活性和扩展性。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lu Yunbo</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-12-15T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/learning/'>learning</a>, <a class='category' href='/blog/categories/oo/'>oo</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yblu.github.io/blog/2014/12/15/leanring-note/" data-via="" data-counturl="http://yblu.github.io/blog/2014/12/15/leanring-note/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/12/04/ML-basic-concept/" title="Previous Post: 统计学习的一些概念">&laquo; 统计学习的一些概念</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/12/17/atoi-implementation/" title="Next Post: 经典面试题atoi">经典面试题atoi &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/02/2015-Summary/">2015年总结</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/03/PB-LanguageGuide/">Protocol Buffer 语法指南</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/06/01/PB-Encoding/">Protocol Buffer Encoding</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/28/php-lottery/">Php 抽奖算法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/05/20/MR-optimization/">MapReduce 的优化Tips</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - Lu Yunbo -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
